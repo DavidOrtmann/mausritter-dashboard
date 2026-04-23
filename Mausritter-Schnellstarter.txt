@@ -1,0 +1,1315 @@
+﻿
+
+Ein Rollenspiel mit Schwert und Schnurrhaaren
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Schnellstarter
+
+Impressum
+
+Entwicklung des Spiels und Regeltexte
+Isaac Williams
+Abenteuerschauplatz
+Michael Masberg
+Illustrationen
+Isaac Williams und Christian Laugsch
+Projektleitung und Produktion
+System Matters Verlag, Jedamzik und Neugebauer GbR
+Redaktion
+Michael Masberg
+Lektorat
+René Kremer
+Layout
+Patrick Wittstock
+Druck
+WIRmachenDRUCK GmbH | Mühlbachstraße 7 | 71522 Backnang
+
+Deutsche Ausgabe von System Matters Verlag mit freundlicher Genehmigung von
+Losing Games, 2023.
+Copyright ©️ 2021–2023
+
+System Matters Verlag und Losing Games www.system-matters.de | www.mausritter.com Jedamzik und Neugebauer GbR |
+
+Augustastr. 45 | 45888 Gelsenkirchen
+
+Inhaltsverzeichnis
+Willkommen in einer gefährlichen Welt!	4
+Was ist Mausritter?	4
+Was ihr zum Spielen braucht	5
+Das Spiel spielen	6
+Rollenspiel	6
+Tipps und Tricks	6
+Proben	6
+Kampf	7
+Rast und Heilung	8
+Plätze im Inventar	8
+Magie und Zauber	10
+Der verbotene Garten der Katzenmagierin	12
+Mausritter leiten	14
+Vorbereitungen	15
+Der Einstieg ins Abenteuer	16
+Begegnungen	17
+Schätze	19
+Der verbotene Garten	20
+Fallentunnel	26
+Das Abenteuer geht weiter!	26
+Anhang	28
+Vorgefertigte Charaktere	31
+Zustandskarten	41
+Gegenstandskarten	42
+3
+Willkommen in einer gefährlichen Welt!
+Die Königreiche der Mäuse behaupten sich gegen den drohenden Zusammenbruch. Ein strenger Winter oder eine skrupellose Katze können das Ende von allem bedeuten. Versteckt in Ihren Siedlungen, in Bäumen, Höhlen und Mauern drängen sich die sess-haften Mäuse zusammen und versuchen, mit dem auszukommen, was sie besitzen.
+Aber du bist keine von diesen gewöhnlichen, sesshaften Mäusen.
+Du bist eine Abenteuermaus. Ob nun aus freien Stücken oder aus der Not heraus geboren. Du lebst von deinem Glück, deiner Klugheit und deinem Mut.
+Mit deinen Gefährt:innen an deiner Seite wirst du die Wärme und Sicherheit deines Baus hinter dir lassen und dich in dunkle und gefährliche Orte vorwagen, vor denen andere Mäuse sich fürchten.
+Großer Reichtum kann nur von denen erlangt werden, die den Mut haben, danach zu greifen. Die Welt ist alt. Große Königreiche von Mäusen und Ungeheuern er-hoben sich und fielen wieder in sich zusammen.
+Die Welt da draußen ist groß und gefährlich. Sie ist kein Ort für eine kleine Maus. Mit Tapferkeit und Klugheit und einem kleinem bisschen Glück auf deiner Seite könntest du überleben. Und wenn du lange genug überlebst, wirst du vielleicht sogar ein großes Vorbild für andere Mäuse.
+Was ist Mausritter?
+Mausritter ist ein Rollenspiel. Du und zwei bis fünf deiner Freund:innen er-schaffen durch eure Fantasie gemeinsam eine Welt. Die Regeln helfen euch dabei, eure Geschichten interessant und herausfordernd zu gestalten.
+Jemand von euch wird die Rolle der Spielleitung (SL) übernehmen. Diese wird eine stimmige, glaubhafte Welt voller gefährlicher Antagonist:innen, wilder Land-schaften und friedlicher Siedlungen erschaffen und beschreiben. Sie wird zudem als neutrale:r Schiedsrichter:in die Regeln auslegen und diese fair auf die Spielmäuse sowie die Nebenfiguren innerhalb der Welt anwenden.
+Die anderen Mitspielenden schlüpfen in die Rolle der Mäuse. Jede:r spielt die Rolle eines kleinen, tapferen und entschlossenen Abenteurers oder einer Abenteurerin, um gefährliche Orte zu erforschen und die Welt zu erkunden, die die SL beschreibt.
+Was ist ein Rollenspiel?
+Rollenspiel ist eine Mischung aus gemeinsam erzählten Geschichten und Problemlösungen.
+Rollenspiele bestehen hauptsächlich aus Gesprächen. Die Spielleitung wird die Situation beschreiben und die Spieler:innen erklären, wie die Mäuse, die sie kontrollieren, darauf reagieren und damit umgehen.
+An einigen Stellen (zum Beispiel wenn eine Maus etwas Gefährliches versucht) kommen die Regeln ins Spiel. Dann wird gewürfelt, um zu sehen, was geschieht. Danach wird die Unterhaltung fortgesetzt.
+4
+Was ihr zum Spielen braucht
+    • einen Mausbogen aus dem Anhang pro Spieler:in (außer der SL)
+    • Marker für Gegenstände und Zustände aus dem Anhang
+    • mehrseitige Würfel (W4, W6, W8, W10, W12 und W20)
+    • Stifte und Radiergummis
+    • Zettel für Notizen und Skizzen
+
+Würfelbezeichnungen
+Mausritter verwendet die Standardbezeichnungen für Rollenspielwürfel. Hier einige Beispiele:
+    • W20 bedeutet: Würfle einen einzelnen 20-seitigen Würfel.
+    • W8 bedeutet: Würfle einen einzelnen 8-seitigen Würfel.
+    • 
+    • 3W6 bedeutet: Würfle drei 6-seitige Würfel und addiere die Augenzahlen. Für einen W3 oder W2 verwendest du einen 6-seitigen Würfel und teilst das Er-gebnis durch 2 oder 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5
+Das Spiel spielen
+Die SL beschreibt die Situation. Du beschreibst, was deine Maus macht. Die SL be-schreibt die Folgen. Das Gespräch wird fortgesetzt, bis eine Regelmechanik greift.
+Rollenspiel
+Du schlüpfst in die Rolle deiner Maus und lenkst ihre Schritte. Du kannst in der ersten, zweiten oder dritten Person sprechen oder dazwischen wechseln. Du musst dafür nicht unbedingt deine Stimme verstellen, aber es kann auch nicht schaden.
+Tipps und Tricks
+Solltest du einmal im Spiel nicht mehr weiter wissen. verwende diese Richtlinien.
+    • Stelle viele Fragen. Mache Notizen. Zeichne Karten.
+    • Arbeitet zusammen. Schmiedet Pläne. Findet Verbündete.
+    • Würfel sind gefährlich. Schlaue Ideen müssen nicht ausgewürfelt werden.
+    • Spiele auf Sieg. Habe Spaß an der Niederlage.
+    • Kämpfe verbissen. Fliehe. Sterbe. Mache mit einer neuen Maus weiter.
+Proben
+Wenn du beschreibst, dass deine Maus etwas Riskantes wagt, bei dem der Ausgang ungewiss ist und ein Scheitern Konsequenzen hat, wird die SL dich bitten, eine Probe auf STÄ, GES oder WIL zu machen.
+Für die Probe würfelst du einen W20. Wenn das Ergebnis kleiner oder gleich des entsprechenden Attributes ist, ist deine Maus erfolgreich und erleidet keine Konsequenzen. Liegt das Ergebnis über dem Attribut, scheitert deine Maus und erleidet die von der SL beschriebenen Konsequenzen.
+Vergleichende Proben
+Wenn deine Maus und ein anderer Charakter gegeneinander antreten, legt beide eine Probe ab. Der niedrigste erfolgreiche Wurf gewinnt.
+Vorteil und Nachteil
+Wenn du eine Probe würfelst und besonders gut vor- bereitet oder ausgerüstet bist, kann dir die SL erlauben, mit Vorteil zu würfeln. Würfle 2W20 und verwende das niedrigere Ergebnis.
+Die SL kann dich anweisen, mit Nachteil zu würfeln, wenn du dich in einer schlechten Position befindest oder für die aktuelle Aufgabe schlecht ausgerüstet bist. Würfle 2W20 und verwende das höhere Ergebnis.
+
+
+6
+Kampf
+Kämpfe sind für Mäuse gefährlich, sogar für tapfere Abenteurer:innen. Manchmal lassen sie sich nicht vermeiden.
+Wenn ihr ahnungslose Gegner:innen angreift, agieren du und deine Verbündeten zuerst. Ansonsten braucht es eine GES-Probe, um vor der anderen Seite zu agieren. Diese Reihenfolge bleibt in den folgenden Kampfrunden bestehen.
+Sobald du an der Reihe bist, darf sich deine Maus bis zu 30 cm weit bewegen und eine Aktion durchführen. Aktionen können alles sein, von Verhandlungen über Angriffe oder Flucht bis hin zu gefährlichen Manövern (wie Ausfallschritte oder Entwaffnen).
+Angriffe
+Ein Angriff trifft immer. Würfle deinen Waffenwürfel und füge dem Ziel Schaden
+abzüglich seiner Rüstung zu.
+Wenn ein Angriff beeinträchtigt ist – Schüsse auf ein Ziel in Deckung, festgehalten kämpfen – würfle unabhängig von der Waffe W4 Schaden. Ist der Angriff durch ein Manöver oder wehrloses Ziel verstärkt, würfle W12.
+Trefferschutzpunkte und Schaden
+Schaden wird zuerst den Trefferschutzpunkten (TP) eines Wesen zugefügt. Dies stellt die Fähigkeit des Wesen dar, echten Schaden zu vermeiden oder abzuwehren. Sobald die TP erschöpft sind, wird der Schaden vom STÄ-Wert abgezogen.
+Wenn ein Wesen STÄ-Schaden erleidet, muss es eine STÄ-Probe (auf den reduzierten Wert) ablegen. Bei einem Erfolg kann es weiterkämpfen. Misslingt die Probe, er-leidet es kritischen Schaden.
+Ein Wesen, das kritischen Schaden erleidet, erhält den Zustand Verletzt und ist kampfunfähig, bis es von Verbündeten versorgt wird und eine kurze Rast einlegt. Ein kampfunfähiges Wesen, das eine Stunde lang unversorgt bleibt, stirbt.
+Attributsverlust und Tod
+Wenn der STÄ-Wert eines Wesen auf Null reduziert wird, ist es tot. Wenn der GES-Wert auf Null reduziert wird, ist es unfähig, sich zu bewegen. Wenn der WIL-Wert auf Null reduziert wird, ist es bewusstlos.
+
+
+
+
+
+
+
+
+
+
+7
+Rast und Heilung
+Es gibt für deine Maus drei Optionen zum Rasten und Erholen.
+    • Kurze Rast: Dauert 10 Minuten. Ein Schluck Wasser und ein paar Minuten Ruhe heilen W6+1 TP.
+    • Lange Rast: Dauert 6 Stunden. Eine Mahlzeit und etwas Schlaf stellen alle TP wieder her. Sind die TP bereits voll, heile stattdessen W6 Punkte eines Attributs.
+    • Komplette Rast: Braucht eine Woche in Sicherheit. Dies stellt alle Attributswerte vollständig wieder her und entfernt langanhaltende Zustände. Eine Woche Kost und Logis in einer Siedlung kostet für gewöhnlich 20 Kerne. Inventar und Ausrüstung
+Plätze im Inventar
+
+Deine Maus verwendet für getragene Gegenstände ihre Inventarplätze. Die meisten Gegenstände beanspruchen einen Inventarplatz. Manche größeren Gegenstände wie Zweihandwaffen und Rüstungen beanspruchen zwei Plätze.
+
+
+
+
+Pfotenplätze
+Die Gegenstände werden in der Pfote gehalten.
+Körperplätze
+Getragene Gegenstände können als freie Aktion mit Pfotenplätze getauscht werden.
+Rucksackplätze
+Es braucht Zeit, um Gegenstände an diesen Plätzen unter Druck hervorzuholen. Im Kampf muss deine Maus eine Aktion aufwenden (statt anzugreifen), um einen Gegenstand in ihrem Rucksack zu finden.
+
+
+
+8
+Zustände
+Zustände sind negative Effekte, die deine Maus erleiden kann.
+Jeder Zustand nimmt einen Inventarplatz ein. Mäuse können den gleichen Zustand mehrfach besitzen.
+Manche Zustände haben zusätzliche Effekte, die so lange gelten, wie sich der Zu-stand in deinem Inventar befindet.
+Zustände können nur entfernt werden, wenn die Voraussetzung zur Erholung
+erfüllt wurde – gewöhnlich nach einer kurzen, langen oder kompletten Rast.
+Anwendungen
+Die meisten Gegenstände besitzen drei Felder für Anwendungen. Wenn alle drei Felder markiert sind, ist ein Gegentand aufgebraucht oder zerstört. Markierte Felder von Waffen und Rüstungen können jeweils für 10% der ursprünglichen Kosten wieder nutzbar gemacht werden.
+    • Waffen/Rüstungen/Munition: Würfle nach einem Kampf W6 für jeden be-nutzten Gegenstand. Markiere bei einer 4-6 ein Feld.
+    • Fackeln/Laternen: Markiere alle 60 Minuten ein Feld.
+    • Rationen: Markiere nach einer Mahlzeit ein Feld.
+    • Sonstige Ausrüstung: Wenn sie so verwendet wird, dass sie beschädigt oder verbraucht wird, kann die SL dich bitten, ein Feld zu markieren.
+Belastung
+Wenn deine Maus mehr Gegenstände trägt oder Zustände besitzt, als Inventar-plätze vorhanden sind, gilt sie als belastet.
+Solange sie belastet ist, kann deine Maus nicht rennen und würfelt alle Proben mit
+Nachteil.
+
+
+
+
+9
+
+
+
+
+
+
+
+
+Magie und Zauber
+Bei Zaubern handelt es sich um lebendige Geister, die in Steintafeln durch ein-geritzte Runen gefangen werden. Zauber werden oft an verborgenen, gefährlichen Orten gefunden. Nur die fähigsten Zaubernden beherrschen die vergessene Kunst, Zauber zu erschaffen und hüten dieses Geheimnis eifersüchtig.
+Einen Zauber wirken
+Um einen Zauber zu sprechen, muss deine Maus die Steintafel in den Pfoten halten und laut vortragen.
+Wenn deine Maus den Zauber wirkt, entscheide dich, mit welcher Macht er wirken soll. Die Macht kann höchstens so groß sein, wie es noch freie Felder für An-wendungen des Zaubers gibt.
+Würfle so viele W6 wie die Macht des gewirkten Zaubers beträgt. Markiere für jeden Würfel der eine 4, 5 oder 6 zeigt eine Anwendung des Zaubers. Wenn alle Anwendungen eines Zaubers markiert wurden, ist dieser verbraucht und kann nicht mehr gewirkt werden.
+Der Effekt des Zaubers hängt von der Anzahl der eingesetzten [WÜRFEL] und der [SUMME] der Augenzahlen ab.
+Zauberpatzer
+Jedes Mal, wenn beim Wirken eines Zaubers, eine oder mehrere Sechsen gewürfelt werden, erleidet die zaubernde Maus W6 WIL-Schaden pro gewürfelter 6. Lege nun eine WIL-Probe ab. Wenn sie misslingt, erhältst du den Zustand Entkräftet.
+10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Liste der Zauber
+
+Furcht	[WÜRFEL] Lebewesen erhalten den Zustand Ängstlich.
+
+Entferne den Zustand Erschöpft oder Ängstlich von [WÜR-FEL]+1 Lebewesen.
+
+
+11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ie Augen der Spielleitung (SL) gedacht. Wenn du nicht die SL zur Seite, um dir nicht die Spannung zu verderben.
+
+13
+Mausritter leiten
+Es folgen ein paar Richtlinien, um die Rolle der Spielleitung für Mausritter zu übernehmen.
+    • Schaffe Situationen, keine Plots! Lass die Spieler:innen ihr eigenes Abenteuer finden und dränge sie nicht in eine bestimmte Richtung.
+    • Mache die Welt erfahrbar! Du bist die Augen, Ohren und Nasen der Mäuse. Verheimliche nichts und gib den Spieler:innen alle Informationen, die sie brauchen, um wichtige Entscheidungen zu treffen.
+    • Kündige Gefahren an! Warne die Mäuse großzügig vor drohenden Gefahren. Aber ziehe nicht die Samthandschuhe an, wenn sie sich der Gefahr stellen wollen.
+    • Belohne Tapferkeit! Wenn die Mäuse sich schlau und tapfer verhalten und kluge Schlüsse ziehen, belohne sie dafür.
+Proben verlangen
+Proben sollten nur aufgrund einer Handlung oder Entscheidung der Spieler:innen verlangt werden. Die Mäuse können alles machen, was sie wollen, solange es nach-vollziehbar und gefahrlos machbar ist. Sobald sie aber etwas Gefährliches tun, lasse sie eine Probe würfeln, um mögliche Konsequenzen zu vermeiden.
+    • STÄ-Proben: vermeide Schaden durch körperliche Kraft und Ausdauer
+    • GES-Proben: vermeide Schaden durch Geschwindigkeit, schnelle Reaktionen und Wendigkeit
+    • WIL-Proben: vermeide Schaden durch starke Persön- lichkeit und Willensstärke
+Auswirkungen misslungener Proben
+Die Konsequenzen misslungener Proben sollten vorher offensichtlich und an-gekündigt sein. Einige mögliche Konsequenzen sind:
+    • Schaden: W4 ist gering, W6 ist gefährlich. Ein W8 reicht aus, um eine Spiel-maus ernsthaft zu verletzen.
+    • Zustände: Erschöpft oder Ängstlich sind gute Optionen.
+    • Neue Gefahren: Präsentiere eine unerwartete, neue Bedrohung.
+    • Verlust eines zufälligen Gegenstandes: Würfle W6 für die Inventarplätze.
+    • Anwendung markieren: Markiere 1-3 Felder.
+Regeln anpassen
+Die Regeln von Mausritter werden nicht jede Situation abdecken, denen du und die Spieler:innen begegnen. Manches wurde bewusst vage gehalten. Sobald so ein Fall eintritt, passe eine vorhandene Regel entsprechend an oder erfinde eine neue.
+
+
+
+
+
+
+14
+Vorbereitungen
+Mache dich mit den Regeln vertraut und verschaffe dir einen Überblick über den Abenteuerschauplatz. Du musst nicht alles auswendig wissen, und das Spiel ist nicht kompliziert, aber es schadet nicht, eine Ahnung zu haben, wo du nachschlagen kannst.
+Die Spielmäuse
+Stelle deinen Spieler:innen die Spielmäuse im Anhang vor. Du kannst ihnen die Bilder zeigen oder die Charakterbögen durchlesen lassen. Jede:r Spieler:in wählt eine Maus. Die nicht gewählten Mäuse nimmst du wieder an sich.
+Startausrüstung
+Nachdem jede:r Spieler:in eine Maus gewählt hat, verteile folgende Ausrüstungs-karten:
+    • Aloe Saatstreu: Kampfstab (schwere Waffe, W10 Schaden), Zauber: Ge-nesung, Heiliges Symbol, Fackeln, Rationen
+    • Butter Pipp: Glasscherbendolch (leichte Waffe, W6 Schaden), Teil eines selt-samen Buches, Federkiel & Tinte, Fackeln, Rationen
+    • Elmer Halva: Schwert (mittelschwere Waffe, W6 Schaden einpfotig / W8
+Schaden beidpfotig), Stange (15 cm), Seife, Fackeln, Rationen
+    • Franz von Siepenrinne: Morgenstern (mittelschwere Waffe, W6 Schaden einpfotig / W8 Schaden beidpfotig), Filzhut, Parfüm Fackeln, Rationen
+    • Rowan Quiecker: Haken (schwere Waffe, W10 Schaden), Schleuder (leichte Fernkampfwaffe, W6 Schaden), Steine (Geschosse), Spiegel, Fackeln, Rationen
+Loslegen!
+Beginne mit dem Text auf der nächsten Seite und mache dann mit der ersten Szene weiter. Zeige den Spieler:innen die Karte vom geheimen Karten und findet gemeinsam raus, was als Nächstes passiert!
+
+
+
+
+
+
+
+
+15
+Der Einstieg ins Abenteuer
+Seit Wochen bedroht der geflügelte Schrecken Todesschatten die kleine Maus-baronie Stutzel. In ihrer Verzweiflung suchten die Mäuse die berüchtigte Katzen-magierin Akilah auf. Doch Akilah mischt sich nicht in die Belange der Eulen-zauberinnen und Nager ein und wies das Hilfegesuch ab.
+Nun haben die Mäuse spitz bekommen, dass Akilah zu einer geheimen Katzenver-sammlung aufgebrochen ist. Baronin Rosenstock von Stutzel hat euch, die tapfersten Mäuse der Baronie, erwählt! In ihrem Auftrag sollt ihr in Akilahs verbotenen Garten eindringen und den mächtigen Zauber Federbann stehlen. Doch seid vor-sichtig! Akilahs Garten soll voller heimtückischer Fallen und seltsamer Wesen sein und ihre Zaubermacht so gewaltig, dass sie selbst Menschen in Metallstatuen ver-wandeln kann!
+Der Garten ist von unüberwindlichen Mauern umgeben, gekrönt von heim-tückischen Rostdornenranken. Nur ein unterirdischer Zufluss bietet ungesehenen Zugang. Mit Meister Wogenreiters Papierboot gleitet ihr vorsichtig durch die dunkle Röhre. Der Gestank abgestandenen Wassers, alten Eisens und von Dingen, über die ihr nicht weiter nachdenken möchtet, umgibt euch.
+Plötzlich ertönt hinter euch ein Donnern, das immer lauter anschwillt. Eine riesige Welle rast auf euch zu und reißt euer kleines Boot mit sich. Auf einem wilden Ritt stürzt ihr dem verbotenen Garten der Katzenmagierin entgegen …
+Die erste Szene
+Das Abenteuer beginnt mit einer halsbrecherischen Bootsfahrt durch das alte Ab-wasserrohr. Lass alle Spieler:innen eine GES-Probe ablegen.
+    • Jede Maus, der eine Probe misslingt, erhält den Zustand Erschöpft.
+    • Misslingen mehr Proben als gelingen, bricht das Boot auseinander. Jede Maus verliert entweder einen Gegenstand ihrer Wahl in den Fluten oder erleidet W6 Schaden.
+    • Gelingen mehr Proben als misslingen, hält das Boot mit Ach und Krach.
+    • Bei Gleichstand darf eine Maus noch einmal würfeln, dieses Mal mit Vorteil. Ihr Ergebnis bringt die Entscheidung.
+So oder so werden die Mäuse (und das, was von ihrem Boot übrig ist) in den Garten gespült und landen im Teich.
+
+
+
+
+
+
+
+
+16
+
+Begegnungen
+Jedes Mal, wenn die Mäuse von einem Ort zu einem anderen gehen, eine Örtlichkeit untersuchen oder an einem Kampf teilnehmen, markiere dir in einen Notizen ein
+X. Dies entspricht etwa 10 Minuten. Würfle bei jedem dritten X eine Begegnung aus. Würfle außerdem jedes Mal, wenn sie etwas getan haben, dass Aufmerksamkeit auf sie lenken könnte.
+Wenn du dir nicht sicher bist, ob es zu einer Begegnung kommt, würfle W6. Bei einer 1 kommt es zu einer Begegnung. Bei einer 2 kommt es zu einer Vorahnung (Anzeichen oder Hinweise auf eine Begegnung). Bei einer 3 oder höher sind die Mäuse sicher (für den Moment).
+
+
+    2 W4 Aufziehmotten, suchen Schutz vor dem Regen
+
+4	Ein Uhrwerkfrettchen, schleicht durch das Gras
+
+6	Rumpel der Waschbär, sucht nach Material
+
+
+
+
+
+
+
+
+
+17
+
+Aufziehmotten
+Sind größer als sie sein sollten.
+
+Will Eindringlinge ausspähen und melden.
+
+Uhrwerkfrettchen
+Quietschende Schrottbestien mit kräftigen Mäulern und noch kräftigeren Armen.
+4 TP, STÄ 14, GES 8, WIL 12, Rüstung 1
+Angriffe: W8 Biss
+Kritischer Schaden: Packt das Ziel
+Würfle STÄ-Proben mit Vorteil, um ein Ziel festzuhalten.
+Will Eindringlinge gefangen nehmen.
+
+Rumpel der Waschbär
+Akilahs Gefangener, der für sie all die mechanischen Wunder baut. Die Katzenmagierin hält Rumpels Talisman (ein gläserner Dinosaurieranhänger) in ihrer Schatzkammer unter Verschluss und ihn damit gefügig.
+12 TP, STÄ 9, GES 15, WIL 14
+Angriffe: W8 Schraubenzieher
+Angriffe gegen viel kleinere Wesen (wie Mäuse) sind immer verstärkt (W12 Schaden). Schaden durch ein kleineres Lebewesen wird ignoriert, es sei denn, er ist besonders zerstörerisch oder großflächig.
+Will in Ruhe tüfteln (und seiner Gefangenschaft entfliehen).
+
+Fips der Schrottdieb
+Festgesetzter Rattendieb vom Ritterorden des Mülls. Wird helfen und die Mäuse bei erster Gelegenheit verraten, was immer ihm mehr Vorteile bringt.
+    3 TP, STÄ 12, GES 8, WIL 8, Rüstung 1 (wenn er seine Rüstung gefunden hat)
+Angriffe: W4 Unbewaffnet oder W6 Hackbeil
+Will entkommen und seine Zinnrüstung wiederfinden. Und vor allem überleben.
+
+18
+Schätze
+Würfle auf diese Tabelle, wenn die Mäuse einen Schatz finden.
+
+2	Elektrische Laterne (verfügt über 6 Felder für Anwendungen)
+
+4	Zauber: Geisterkäfer
+
+
+
+
+Ein unheimlich glühender Stein (Zauber:innen zahlen dafür 300 Kerne)
+
+
+
+
+
+
+
+Schatzkarte
+
+
+Rostnagel
+
+
+Zinnrüstung
+Zauber: Geisterkäfer
+
+
+
+
+
+unheimlich glühender Stein
+Elektrische Laterne
+
+
+
+19
+Der
+verbotene
+Wetter
+Der Regen hämmert ununterbrochen auf den Schrott und macht den Untergrund entweder
+rutschig oder schlammig.
+
+    • Nutze dies für die Atmosphäre des Schauplatzes! Das Vorankommen und die Sicht sind erschwert. Die Nässe kriecht in die Glieder. Die Gelenke der Uhrwerkfrettchen quietschen wie schlecht geölte Scharniere.
+    • Nachdem sie den dritten Ort erkundet haben, muss den Mäusen eine STÄ-Probe gelingen
+oder sie erhalten den Zustand Erschöpft.
+3
+2
+
+
+
+
+
+
+1
+4
+
+
+
+
+
+5
+
+
+
+6
+
+
+
+
+7
+
+
+
+Das Tor und die Mauern
+Beides ist eigentlich unüberwindbar, vor allem im anhaltenden Regen. Doch akzeptiere gute Einfälle der Mäuse, um auch diese Herausforderungen zu
+meistern!
+
+
+
+
+
+
+
+
+
+
+
+
+Abwasserfall und Moddeteich
+Das brackige Wasser hat sich in den Erdboden gegraben und einen schlammigen Teich gebildet.
+    • Rasten: Die Mäuse wollen nach der	turbulenten	Bootsfahrt vielleicht eine kurze Rast (siehe Seite 8) einlegen. Am Ende der Rast kommt es zu einer Be-gegnung.
+    • Tauchen: Auf dem Grund des Teichs liegt ein Schatz.
+
+
+
+
+22
+
+    3 Eisenmenschen
+Drei Menschen und ein Hund, die von Akilahs Magie in Metallstatuen verwandelt wurden. (In Wirklichkeit Skulpturen.)
+        ◦ Schauriger	Anblick:	Lege eine erfolgreiche WIL-Probe ab oder erhalten den Zustand Ängstlich.
+        ◦ Käseschleuder: Lockt mit Käse (1 Ration) auf ein Zwillenkatapult.		Wer	die Fälle	auslöst		(misslungene GES-Probe),	wird		in		eine Schrottkiste geschleudert und er-leidet W8 Schaden. Mit guten Einfällen lässt sich die Falle blockieren.
+
+
+    4 Käfigbaum
+Ein knorriger, vor langer Zeit abgestorbener Baum, in dessen krummen Ästen Tand und Käfige hängen.
+        ◦ Vergessene	Gefangene:	Würfle W6. Bei einer 1-2 liegt in dem Käfig ein Mäuseskelett. Lege eine erfolgreiche WIL-Probe
+ab oder erhalten den Zustand Ängstlich.
+        ◦ Der Schrottdieb: In einem Käfig hockt die Ratte Fips vom Ritterorden des Mülls. Er wurde von den Uhr-werkfrettchen	gefangen und verspricht seine Hilfe, wenn er befreit wird.
+
+
+
+
+
+
+23
+
+    5 Rumpels Werkstatt
+Alte Elektrogeräte stapeln sich in schwindelerregende Höhen. Das Licht eines offenen
+Kühlschranks fällt auf Werkbänke und Werkzeug. Es riecht nach nassem Wildtier.
+        ◦ Die Werkstatt von Rumpel dem Waschbären. Akilah zwang ihn in ihren Dienst, indem sie seinen Talisman stahl und in ihrer Schatzkammer ver-schloss. Er ist zu lange Gefangener, um leichtfertig angebotener Hilfe zu trauen.
+        ◦ Rumpel kennt alle Fallen, da er sie selbst gebaut hat, und kann die Mäuse warnen, wenn er ihnen traut.
+        ◦ Machen die Mäuse ihm ein Geschenk, verrät er ihnen eine Schwach-stelle der Uhrwerkfrettchen. Fortan gilt der erste
+Angriff gegen ein solches Wesen als verstärkt.
+        ◦ Überzeugen die Mäuse ihn von ihrer Hilfe, bietet Rumpel an, ihre Ausrüstung zu reparieren. Pro Anwendung dauert
+dies 10 Minuten. Bei der dritten Reparatur kommt es zu einer Begegnung.
+
+
+
+
+
+
+
+
+
+    6 Klappe
+Halb geöffnet bietet sie Zuflucht vor dem Regen.
+Doch ist der Dunkelheit zu trauen?
+        ◦ Es ist stockfinster.
+        ◦ Rumpel lagert hier Ersatzteile. Unter
+ihnen befindet sich ein Schatz.
+
+
+
+
+
+
+
+
+24
+
+    7 Akilahs Magierinnenturm
+Ein bizarres Konglomerat aus Schrott und alten Geräten. Miteinander verbundene Kühl-truhen und Container bilden das Fundament, darüber thront ein turmhohes Gebilde aus Plattformen und Kästen.
+        ◦ Zugang zur Schatzkammer: Unten befindet sich der Eingang zum Fallen-tunnel, an dessen Ende Akilahs Schätze warten.
+        ◦ Der Turm: Ein Katzenbaum aus Schrott. Der Wind pfeift und peitscht den Regen um die Schnauzen. GES-Probe mit Nachteil zum Erklimmen oder W10 Schaden durch den Sturz in die Tiefe. Wer oben ankommt, erhält den Zustand Erschöpft und wird mit zwei Schätzen belohnt.
+        ◦ An der Turmspitze sind drei Symbole in das Metall geätzt: � ® '.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+25
+Fallentunnel
+Ein in drei Kammern unterteilter Tunnel. Metallplatten mit seltsamen Symbolen auf dem Boden. Die Wände und Decken sind glatt.
+        ◦ Fallen: Wenn die falsche Platte betreten wird, wird die Falle ausgelöst.
+        ◦ Der richtige Weg: Rumpel kennt den richtigen Weg, und Akilah hat die Symbole der ungefährlichen Platten an der Spitze des Magierinnenturms eingeätzt.
+        ◦ Für Katzen gemacht: Die Abstände sind herausfordernd für Mäuse. Wem eine GES-Probe misslingt, landet auf einer anderen Platte als beabsichtigt. Sei großzügig, wenn die Mäuse sich zu helfen wissen!
+        ◦ Kammer 1 – Die Presse (�): Verborgene Hydraulik lässt die Decke nieder-sausen. Tödlich für große Tiere, heimtückisch für Mäuse (W10 Schaden). Einmal ausgelöst, braucht die Falle 10 Minuten, bis sie wieder scharf ist.
+        ◦ Kammer 2 – Die Falltür (®): Darunter ist ein Becken mit Batteriesäure. Verliere alle Anwendungen deiner Rüstung, wenn du eine trägst, oder erleide W8 Schaden. Erhalte in beiden Fällen den Zustand Verätzt.
+        ◦ Kammer 3 – Furcht ('): Unter der Decke ist eine Steintafel eingelassen (Zauber: Furcht). Unter Einfluss des Zaubers muss eine WIL-Probe gelingen, um die Kammer zu durchqueren. Es braucht Werkzeug und gute Einfälle, um die Steintafel zu entfernen, wenn die Mäuse den Zauber mitnehmen wollen.
+        ◦ Schatzkammer: Hier finden die Mäuse den Zauber: Federbann, einen Glas-anhänger in Form eines Dinosauriers (Rumpels Talisman) sowie zwei Schätze – und womit du sie sonst noch belohnen möchtest.
+
+Das Abenteuer geht weiter!
+Wie gelingt es den Mäusen, den verbotenen Garten wieder zu verlassen? Kann Rumpel ihnen dabei helfen und wird er sie begleiten? Wie reagiert Akilah, wenn sie bei ihrer Rückkehr den Diebstahl bemerkt? Und genügt der gestohlene Zauber, um Todesschatten zu vertreiben? Wir überlassen es euch, die Antwort auf diese Fragen herauszufinden. Vielleicht erzählt ihr sie euch in einem gemeinsamen Epilog. Oder es folgen daraus weitere Abenteuer in der Welt von Mausritter.
+
+
+
+
+
+
+
+
+
+
+
+26
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+27
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+29
+
+Aloe Saatstreu
+Bettelpriesterin
+Mutter (Charakter: Fürsorglich/Besorgt)
+Schokoladenbraun gescheckt
+Augenklappe
+
+
+
+10
+7
+9
+2
+
+
+
+
+
+Dem weltlichem Besitz entsagend hast du dich im Namen der Mutter ganz dem Dienst an der Mäusegemeinschaft verschrieben. Du kümmerst dich gerne, auch wenn du dir manchmal zu viele Sorgen machst.
+
+Butter Pipp
+Bibliothekarin
+Eichel (Charakter: Wissbegierig/Stur)
+Weiß gesprenkelt
+Stummelschwanz
+
+
+
+9
+9
+11
+6
+
+
+
+
+
+Du kommst aus dem fernen Klinkerhafen und bist mit der dortigen Bürgermeisterin Audrey verwandt. Du bist sehr wissbegierig – und verdammt stur, wenn es um deine Neugier geht. Diese Mischung hat dich in die Welt hinaus geführt.
+
+Elmer Halva
+Wurmhirte
+Stern (Charakter: Tapfer/Leichtsinnig)
+Bläulich gestreift
+Fehlendes Ohr
+
+
+
+10
+10
+4
+4
+
+
+
+
+
+Würmer sind faszinierende Wesen. Leider teilt nicht jede Maus deine Begeisterung. Baronin Rosenstock hat dich aufgrund deiner weit gerühmten Tapferkeit ausgewählt, und das erfüllt dich mit Stolz. Trotzdem sehnst du dich nach deinen Würmern zurück.
+
+Franz von Siepenrinne
+Verarmte Adelsmaus
+Sturm
+(Charakter: Großzügig/Jähzornig) Hellbraun
+Geflickte Kleidung
+
+
+
+12
+8
+7
+6
+
+
+
+
+
+Baronin Rosenstock ist eine Cousine dritten Grades und die von Siepenrinne und von Stutzel blicken auf eine lange Geschichte zurück. Natürlich bist du daher ohne zu zögern dem Ruf zur Queste gefolgt! (Und weil du hoffst, dadurch endlich deine Spielschulden bezahlen zu können.)
+
+Rowan Quiecker
+Schrottsammler
+Rad (Fleißig/Fantasielos)
+Schwarz gescheckt
+Längliches Gesicht
+
+
+
+8
+8
+6
+3
+
+
+
+
+
+So ganz weißt du nicht, warum du dabei bist. Aber wenn ein Job gemacht werden muss, stellst du keine Fragen. (Vielleicht ist das der Grund? Egal!) Und wer weiß, vielleicht gibt es was abzugreifen.
+
+
+Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast
+Ängstlich	Ängstlich	Ängstlich	Ängstlich	Ängstlich
+WIL-Probe zum Nähern der Angstquelle	WIL-Probe zum Nähern der Angstquelle	WIL-Probe zum Nähern der Angstquelle	WIL-Probe zum Nähern der Angstquelle	WIL-Probe zum Nähern der Angstquelle
+Erholung:
+Nach kurzer Rast	Erholung:
+Nach kurzer Rast	Erholung:
+Nach kurzer Rast	Erholung:
+Nach kurzer Rast	Erholung:
+Nach kurzer Rast
+Entkräftet	Entkräftet	Entkräftet	Entkräftet	Entkräftet
+Nachteil bei WIL-Proben	Nachteil bei WIL-Proben	Nachteil bei WIL-Proben	Nachteil bei WIL-Proben	Nachteil bei WIL-Proben
+Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast
+Verletzt	Verletzt	Verletzt	Verletzt	Verletzt
+Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben
+Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast
+Hungrig
+
+
+Erholung:
+Nach Mahlzeit	Hungrig
+
+
+Erholung:
+Nach Mahlzeit	Hungrig
+
+
+Erholung:
+Nach Mahlzeit	Hungrig
+
+
+Erholung:
+Nach Mahlzeit	Hungrig
+
+
+Erholung:
+Nach Mahlzeit
+Verätzt	Verätzt	Verätzt	Verätzt	Verätzt
+Nachteil bei
+GES- & WIL-Proben	Nachteil bei
+GES- & WIL-Proben	Nachteil bei
+GES- & WIL-Proben	Nachteil bei
+GES- & WIL-Proben	Nachteil bei
+GES- & WIL-Proben
+Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast
+Verletzt	Verletzt	Verletzt	Verletzt	Verletzt
+Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben	Nachteil bei
+STÄ- & GES-Proben
+Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast	Erholung:
+Nach kompletter Rast
+Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast	Erschöpft
+
+
+Erholung:
+Nach langer Rast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+42
+
+Zauber Federbann	Zauber
+Geisterkäfer	Zauber
+Genesung	Kampfstab
+W10
+
+
+
+
+
+
+Schwer	Enterhaken
+W10
+
+
+
+
+
+
+Schwer
+Schwert
+W6/W8
+
+Mittelschwer	Morgenstern
+W6/W8
+
+Mittelschwer	Rostnagel
+W6/W8
+
+Mittelschwer		
+Dolch
+W6
+
+Leicht	Hackbeil
+W6
+
+Leicht	Schleuder
+W6
+
+Leicht, Fernkampf	Schraubenzieher
+
+W10
+
+
+
+
+
+
+Schwer	Zinnrüstung
+1 VTD
+
+
+
+
+
+
+Schwer
+Steine
+
+Geschosse	Steine
+
+Geschosse	Steine
+
+Geschosse		
+
+Leichte Rüstung
+
+1 VTD	
+Leichte Rüstung
+
+1 VTD	
+Leichte Rüstung
+
+1 VTD	
+Leichte Rüstung
+
+1 VTD	
+Zinnrüstung
+
+1 VTD
+
+
+
+
+
+
+
+
+
+
+
+
+
+Schwer
+Speer
+W10
+
+
+
+
+
+
+Schwer	Schwert
+W6/W8
+
+Mittelschwer	
+
+W6
+
+Improvisiert	Bogen
+W8
+
+
+
+
+
+
+Schwer, Fernkampf	Pfeile
+
+
+Geschosse
+	Dolch
+W6
+
+Leicht	
+W6
+
+Improvisiert		Pfeile
+
+
+Geschosse
+
+
+
+Schatzkarte	Federkiel und Tinte	Heiliges Symbol
+
+
+
+	Spiegel	Rationen
+
+
+
+
+Seife
+
+
+
+	Parfüm	Filzhut
+
+
+
+	Glasanhänger
+
+
+
+	 Teil eines selt-samen Buches
+
+glühender Stein	
+Elektr. Laterne
+
+
+
+
+
+
+
+	
+Steine
+
+
+
+
+
+	
+Steine
+
+
+
+
+
+
+
+	
+Fackeln	Fackeln	Fackeln	Fackeln	Fackeln
+
+Rationen
+
+
+
+
+
+
+
+	
+Rationen
+
+
+
+
+
+
+
+	
+Rationen
+
+
+
+
+
+
+
+	
+Rationen
+
+
+
+
+
+
+
+	
+Rationen
+
+
+
+
+
+
+
+
+Stange, 15 cm	Kernbeutel
+
+
+/ 250	Kernbeutel
+
+
+/ 250	Kernbeutel
+
+
+/ 250	Kernbeutel
+
+
+/ 250
+	
+	
+	
+	
+
+
+Kernbeutel
+
+
+
+
+
+/ 250	
+
+
+	
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+Isaac Williams
+
+Nehmt das Schwert in die Pfote, zieht die Schnurrhaare gerade und schlüpft in die Rolle tapferer Mäuse auf Abenteuerfahrt.
+Dies ist Mausritter, das Fantasy-Rollenspiel mit Schwert und Schnurrhaaren!
+
+Die Welt da draußen ist riesig und gefährlich und gar nicht so freundlich zu kleinen Mäusen. Aber wenn ihr sehr tapfer und clever seid und ein bisschen Glück habt, dann könnt ihr vielleicht überleben.
+Und wenn ihr lange genug überlebt, werden die anderen Mäuse vielleicht sogar eure Heldentaten besingen.
+
+Ein Mausritter-Schnellstarter für 2-5 Spielende ab 8 Jahren.
+Geeignet um sofort ins Spiel einzusteigen mit fünf vorgefertigten Mäusen, einem Kurzabenteuer und Ausrüstungskärtchen zum ausschneiden.
+
+
+
+
+
+
+
+
+
+Bestes Familienspiel

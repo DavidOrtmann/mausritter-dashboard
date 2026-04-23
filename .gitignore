@@ -1,0 +1,8 @@
+# Live session data — not committed; api.php creates data/ on first save
+data/session.json
+
+# VS Code SFTP config contains credentials
+.vscode/sftp.json
+
+# Copyrighted adventure PDFs — reference material only
+*.pdf
