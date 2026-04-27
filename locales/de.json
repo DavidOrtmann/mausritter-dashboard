@@ -52,11 +52,12 @@
     "delete": "Löschen",
     "this_player": "diese Mauss",
     "confirm_delete": "{name} löschen?",
+    "armor": "Rüstung",
     "level": "Level",
     "xp": "EP",
     "grit": "Mumm",
     "pips": "Kerne",
-    "treasury": "Schatz"
+    "treasury": "Tresor"
   },
   "encounter": {
     "heading": "Kampf",
@@ -96,7 +97,8 @@
     "heal_title": "Heilung — {stat}",
     "apply_damage": "Schaden anwenden",
     "apply_heal": "Heilung anwenden",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "armor_hint": "→ {taken} erhalten  (−{armor} Rüstung)"
   },
   "numpad": {
     "edit_max": "Maximum bearbeiten",
@@ -108,7 +110,8 @@
     "hp": "TP",
     "str": "STÄ",
     "dex": "GES",
-    "wil": "WIL"
+    "wil": "WIL",
+    "armor": "RÜS"
   },
   "settings": {
     "heading": "Einstellungen",

@@ -52,6 +52,7 @@
     "delete": "Delete",
     "this_player": "this player",
     "confirm_delete": "Delete {name}?",
+    "armor": "Armor",
     "level": "Level",
     "xp": "XP",
     "grit": "Grit",
@@ -96,7 +97,8 @@
     "heal_title": "Heal — {stat}",
     "apply_damage": "Apply Damage",
     "apply_heal": "Apply Heal",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "armor_hint": "→ {taken} taken  (−{armor} armor)"
   },
   "numpad": {
     "edit_max": "Edit Max",
@@ -108,7 +110,8 @@
     "hp": "HP",
     "str": "STR",
     "dex": "DEX",
-    "wil": "WIL"
+    "wil": "WIL",
+    "armor": "ARM"
   },
   "settings": {
     "heading": "Settings",

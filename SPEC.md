@@ -30,7 +30,7 @@
 ### Tab 2: Players
 - [x] Player cards with editable Name field
 - [x] HP, STR, DEX, WIL — each with `current / max` dual values
-- [x] Per-card meta stats: Level, XP, Grit, Pips, Treasury — each a plain integer, tap to edit via on-screen numpad; displayed as a compact row below the status toggles
+- [x] Per-card meta stats: Level, XP, Grit, Pips, Treasury — each a plain integer, tap to edit via on-screen numpad; displayed as a compact row below the status toggles; XP/Pips/Treasury allow up to 5 digits, Level/Grit capped at 2
 - [x] HP displayed largest/most prominently per card
 - [x] Status toggles per card: Injured / Drained / Encumbered
 - [x] Visual flag on affected stat labels when a status is active
@@ -115,6 +115,7 @@
       "str": 12,
       "dex": 8,
       "wil": 5,
+      "armor": 0,
       "weapon": "Bite",
       "attackDice": "d6",
       "notes": "morale 6, sticky webs"
@@ -136,6 +137,7 @@
       "injured": false,
       "drained": true,
       "encumbered": false,
+      "armor": 0,
       "level": 1,
       "xp": 0,
       "grit": 0,
@@ -155,6 +157,7 @@
       "injured": false,
       "drained": false,
       "encumbered": false,
+      "armor": 0,
       "notes": "morale 6, sticky webs",
       "defeated": false
     }

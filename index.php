@@ -203,6 +203,7 @@ foreach ($supportedLangs as $lang) {
       <input id="popover-val" type="number" min="0" value="1">
       <button id="popover-inc">+</button>
     </div>
+    <div id="popover-armor-hint"></div>
     <div class="popover-actions">
       <button id="popover-apply" class="btn-inverted" data-i18n="popover.apply_damage">Apply Damage</button>
       <button id="popover-cancel" data-i18n="popover.cancel">Cancel</button>
@@ -284,7 +285,7 @@ function makePlayer(name = '') {
   return { id: uuid(), name, hp:{max:6,current:6}, str:{max:10,current:10},
            dex:{max:10,current:10}, wil:{max:10,current:10},
            injured:false, drained:false, encumbered:false, paused:false,
-           level:1, xp:0, grit:0, pips:0, treasury:0 };
+           level:1, xp:0, grit:0, pips:0, treasury:0, armor:0 };
 }
 
 function addPlayerToEncounter(p) {
@@ -293,7 +294,7 @@ function addPlayerToEncounter(p) {
       id: p.id, name: p.name, type: 'pc',
       hp: {...p.hp}, str: {...p.str}, dex: {...p.dex}, wil: {...p.wil},
       injured: p.injured, drained: p.drained, encumbered: p.encumbered,
-      notes: '', defeated: false, initiative: null,
+      notes: '', defeated: false, initiative: null, armor: p.armor ?? 0,
     });
   }
 }
@@ -301,7 +302,7 @@ function makeCombatant(overrides = {}) {
   return { id: uuid(), name:'', type:'enemy', hp:{max:6,current:6},
            str:{max:10,current:10}, dex:{max:8,current:8}, wil:{max:6,current:6},
            injured:false, drained:false, encumbered:false, notes:'', defeated:false,
-           initiative:null,
+           initiative:null, armor:0,
            ...overrides };
 }
 function clamp(v, mn, mx) { return Math.max(mn, Math.min(mx, v)); }
@@ -490,6 +491,7 @@ function buildPlayerCard(p) {
         <button class="status-btn${p.encumbered? ' active':''}" data-status="encumbered">${t('players.status_encumbered')}</button>
       </div>
       <div class="player-meta-row">
+        <span class="meta-stat" data-meta="armor"><span class="meta-lbl">${t('players.armor')}</span><span class="meta-val">${p.armor ?? 0}</span></span>
         <span class="meta-stat" data-meta="level"><span class="meta-lbl">${t('players.level')}</span><span class="meta-val">${p.level ?? 1}</span></span>
         <span class="meta-stat" data-meta="xp"><span class="meta-lbl">${t('players.xp')}</span><span class="meta-val">${p.xp ?? 0}</span></span>
         <span class="meta-stat" data-meta="grit"><span class="meta-lbl">${t('players.grit')}</span><span class="meta-val">${p.grit ?? 0}</span></span>
@@ -575,11 +577,13 @@ function buildPlayerCard(p) {
       const key = el.dataset.meta;
       const label = t('players.' + key);
       const defaults = { level: 1 };
+      const wideKeys = ['xp', 'pips', 'treasury'];
       openNumpad(label, p[key] ?? (defaults[key] || 0), v => {
         p[key] = v;
+        if (key === 'armor') syncEncounterPC(p);
         renderPlayers();
         scheduleSave();
-      }, 0);
+      }, 0, wideKeys.includes(key) ? 5 : 2);
     });
   });
 
@@ -643,15 +647,15 @@ function fullRest(p) {
 
 function applyDamageToPlayer(p, stat, amount) {
   if (stat === 'hp') {
-    const overflow = amount - p.hp.current;
-    p.hp.current = clamp(p.hp.current - amount, 0, p.hp.max);
+    const effective = Math.max(0, amount - (p.armor ?? 0));
+    const overflow = effective - p.hp.current;
+    p.hp.current = clamp(p.hp.current - effective, 0, p.hp.max);
     if (overflow > 0) {
       p.str.current = clamp(p.str.current - overflow, 0, p.str.max);
     }
   } else {
     p[stat].current = clamp(p[stat].current - amount, 0, p[stat].max);
   }
-  // Sync encounter if this player is imported
   syncEncounterPC(p);
 }
 
@@ -678,6 +682,7 @@ function syncEncounterPC(p) {
   ec.injured = p.injured;
   ec.drained = p.drained;
   ec.encumbered = p.encumbered;
+  ec.armor = p.armor ?? 0;
 }
 
 function renderPlayers() {
@@ -774,7 +779,7 @@ function buildPipBar(stat, current, max, onTap, onMaxChange) {
 
 function buildEncCard(ec) {
   const card = document.createElement('div');
-  card.className = 'enc-card' + (ec.defeated ? ' defeated' : '');
+  card.className = 'enc-card' + (ec.defeated ? ' defeated collapsed-card' : '');
   card.dataset.type = ec.type;
   card.dataset.id = ec.id;
 
@@ -817,6 +822,10 @@ function buildEncCard(ec) {
           <span class="csl">${statLabel('wil')}</span>
           <span class="csv" data-cstat="wil">${ec.wil.current}</span>
           <span>/ </span><span class="csm" data-cstat="wil" title="${escHtml(t('encounter.tip_dbl_tap_max', { stat: statLabel('wil') }))}">${ec.wil.max}</span>
+        </span>
+        <span class="compact-stat enc-armor-stat">
+          <span class="csl">${t('stats.armor')}</span>
+          <span class="csv-armor">${ec.armor ?? 0}</span>
         </span>
       </div>
       <div class="status-row">
@@ -862,6 +871,16 @@ function buildEncCard(ec) {
       });
     });
   });
+  // Armor — tap to edit
+  card.querySelector('.csv-armor').addEventListener('click', () => {
+    openNumpad(t('players.armor'), ec.armor ?? 0, v => {
+      ec.armor = v;
+      if (isPC) writeBackToPlayer(ec);
+      renderEncounter();
+      scheduleSave();
+    }, 0);
+  });
+
   // Initiative — tap type badge to enter roll
   card.querySelector('.type-badge').addEventListener('click', () => {
     openNumpad(t('numpad.initiative', { name: ec.name || ec.type.toUpperCase() }), 0, v => {
@@ -940,8 +959,9 @@ function buildEncCard(ec) {
 function applyDamageToEncounter(ec, stat, amount) {
   const isPC = ec.type === 'pc';
   if (stat === 'hp') {
-    const overflow = amount - ec.hp.current;
-    ec.hp.current = clamp(ec.hp.current - amount, 0, ec.hp.max);
+    const effective = Math.max(0, amount - (ec.armor ?? 0));
+    const overflow = effective - ec.hp.current;
+    ec.hp.current = clamp(ec.hp.current - effective, 0, ec.hp.max);
     if (overflow > 0) {
       ec.str.current = clamp(ec.str.current - overflow, 0, ec.str.max);
     }
@@ -962,6 +982,7 @@ function writeBackToPlayer(ec) {
   p.injured = ec.injured;
   p.drained = ec.drained;
   p.encumbered = ec.encumbered;
+  p.armor = ec.armor ?? 0;
 }
 
 function initiativeScore(ec) {
@@ -1047,10 +1068,37 @@ function updatePopoverTitle() {
     popoverMode === 'damage' ? t('popover.apply_damage') : t('popover.apply_heal');
   document.getElementById('popover-mode-dmg').classList.toggle('active', popoverMode === 'damage');
   document.getElementById('popover-mode-heal').classList.toggle('active', popoverMode === 'heal');
+  updateArmorHint();
+}
+
+function getPopoverArmor() {
+  if (!popoverCtx || popoverCtx.statKey !== 'hp' || popoverMode !== 'damage') return 0;
+  const { source, sourceId } = popoverCtx;
+  if (source === 'player') {
+    const p = state.players.find(x => x.id === sourceId);
+    return p ? (p.armor ?? 0) : 0;
+  }
+  if (source === 'encounter') {
+    const ec = state.encounter.find(x => x.id === sourceId);
+    return ec ? (ec.armor ?? 0) : 0;
+  }
+  return 0;
+}
+
+function updateArmorHint() {
+  const hint = document.getElementById('popover-armor-hint');
+  if (!hint) return;
+  const armor = getPopoverArmor();
+  if (armor <= 0) { hint.style.display = 'none'; return; }
+  const raw = parseInt(document.getElementById('popover-val').value) || 0;
+  const effective = Math.max(0, raw - armor);
+  hint.textContent = t('popover.armor_hint', { taken: effective, armor });
+  hint.style.display = 'block';
 }
 
 function openPopover(ctx) {
   popoverCtx = ctx;
+  popoverMode = 'damage';
   document.getElementById('popover-val').value = 1;
   updatePopoverTitle();
   document.getElementById('popover-overlay').classList.add('open');
@@ -1076,11 +1124,14 @@ function closePopover() {
 document.getElementById('popover-dec').addEventListener('click', () => {
   const v = parseInt(document.getElementById('popover-val').value) || 1;
   document.getElementById('popover-val').value = Math.max(0, v - 1);
+  updateArmorHint();
 });
 document.getElementById('popover-inc').addEventListener('click', () => {
   const v = parseInt(document.getElementById('popover-val').value) || 0;
   document.getElementById('popover-val').value = v + 1;
+  updateArmorHint();
 });
+document.getElementById('popover-val').addEventListener('input', updateArmorHint);
 
 document.getElementById('popover-apply').addEventListener('click', () => {
   if (!popoverCtx) return;
@@ -1167,10 +1218,12 @@ function doUndo(id, source) {
 let numpadCallback = null;
 let numpadValue = '';
 let numpadMin = 1;
+let numpadMaxDigits = 2;
 
-function openNumpad(label, current, callback, min = 1) {
+function openNumpad(label, current, callback, min = 1, maxDigits = 2) {
   numpadCallback = callback;
   numpadMin = min;
+  numpadMaxDigits = maxDigits;
   numpadValue = '';
   document.getElementById('numpad-title').textContent = label;
   document.getElementById('numpad-display').textContent = '—';
@@ -1196,8 +1249,7 @@ document.getElementById('numpad-keys').addEventListener('click', e => {
     closeNumpad();
     return;
   } else {
-    // Cap at 2 digits (max stat 99)
-    if (numpadValue.length < 2) numpadValue += k;
+    if (numpadValue.length < numpadMaxDigits) numpadValue += k;
   }
   document.getElementById('numpad-display').textContent = numpadValue || '—';
 });
@@ -1211,7 +1263,7 @@ document.getElementById('numpad-overlay').addEventListener('click', e => {
    ROSTER
 ═══════════════════════════════════════════════════════════════════ */
 function makeRosterEnemy() {
-  return { id: uuid(), name: '', hp: 6, str: 10, dex: 8, wil: 6, weapon: '', attackDice: 'd6', notes: '' };
+  return { id: uuid(), name: '', hp: 6, str: 10, dex: 8, wil: 6, armor: 0, weapon: '', attackDice: 'd6', notes: '' };
 }
 
 // Returns a unique name for the new combatant, renumbering any existing
@@ -1248,6 +1300,7 @@ function buildRosterCard(re) {
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('str')}</span><span class="roster-stat-val" data-rstat="str">${re.str}</span></div>
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('dex')}</span><span class="roster-stat-val" data-rstat="dex">${re.dex}</span></div>
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('wil')}</span><span class="roster-stat-val" data-rstat="wil">${re.wil}</span></div>
+        <div class="roster-stat"><span class="roster-stat-label">${t('stats.armor')}</span><span class="roster-stat-val" data-rstat="armor">${re.armor ?? 0}</span></div>
       </div>
       <div class="roster-weapon-row">
         <input class="roster-weapon-input" type="text" placeholder="${escHtml(t('roster.weapon_placeholder'))}" value="${escHtml(re.weapon || '')}">
@@ -1298,6 +1351,7 @@ function buildRosterCard(re) {
     state.encounter.push(makeCombatant({
       name, notes, type: 'enemy',
       hp: stat(re.hp), str: stat(re.str), dex: stat(re.dex), wil: stat(re.wil),
+      armor: re.armor ?? 0,
     }));
     renderEncounter();
     scheduleSave();
