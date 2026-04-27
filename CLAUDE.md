@@ -37,6 +37,8 @@ state = {
 
 State is auto-saved via `scheduleSave()` (debounced 500 ms → `api.php`).
 
+> **`data/session.json` is excluded from SFTP deployment** (`.vscode/sftp.json` ignore list) — the live server's session file is never overwritten by deploys. All state shape changes must therefore be backward-compatible: new fields must default gracefully when missing (e.g. `p.foo ?? defaultValue`), and no field may be renamed or removed without a migration path.
+
 ## I18n pattern
 
 - Strings live in `locales/en.json` and `locales/de.json` under the same keys.
