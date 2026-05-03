@@ -499,6 +499,7 @@ h3 {
   padding: 8px 10px;
   border-bottom: 1px solid #000;
 }
+.enc-card[data-type="pc"] .enc-card-header { border-bottom: none; }
 .enc-card[data-type="enemy"] .enc-card-header {
   background: var(--black);
   color: var(--white);
