@@ -1473,12 +1473,16 @@ function deduplicateEncounterNames(name) {
 }
 
 // Returns a unique name for the new combatant, renumbering any existing
-// exact-name match in the encounter (e.g. Spinne → Spinne 1 / Spinne 2).
+// exact-name match in the encounter (e.g. Rat → Rat 1 / Rat 2).
+// Also handles repeated adds: if Rat 1 + Rat 2 exist, next add returns Rat 3.
 function resolveEncounterName(baseName) {
-  if (!baseName || !state.encounter.some(e => e.name === baseName)) return baseName;
+  if (!baseName) return baseName;
   const taken = new Set(state.encounter.map(e => e.name));
   let n = 1;
   while (taken.has(baseName + ' ' + n)) n++;
+  // If neither the plain name nor any numbered variant exists, no renaming needed.
+  if (!taken.has(baseName) && n === 1) return baseName;
+  // Rename any existing exact-match entries.
   state.encounter.filter(e => e.name === baseName)
     .forEach(e => { e.name = baseName + ' ' + n; taken.add(e.name); n++; });
   while (taken.has(baseName + ' ' + n)) n++;
