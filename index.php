@@ -1060,6 +1060,14 @@ function buildEncCard(ec) {
       if (isPC) writeBackToPlayer(ec);
       scheduleSave();
     });
+    if (!isPC) {
+      nameInput.addEventListener('blur', () => {
+        if (deduplicateEncounterNames(ec.name)) {
+          renderEncounter();
+          scheduleSave();
+        }
+      });
+    }
   }
 
   // Collapse (persistent across re-renders)
@@ -1446,6 +1454,22 @@ document.getElementById('numpad-overlay').addEventListener('click', e => {
 ═══════════════════════════════════════════════════════════════════ */
 function makeRosterEnemy() {
   return { id: uuid(), name: '', hp: 6, str: 10, dex: 8, wil: 6, armor: 0, weapon: '', attackDice: 'd6', notes: '' };
+}
+
+// Renumbers all combatants sharing the same name (e.g. two "Rat"s → "Rat 1", "Rat 2").
+// Returns true if any renaming happened.
+function deduplicateEncounterNames(name) {
+  const dupes = state.encounter.filter(e => e.name === name);
+  if (dupes.length < 2) return false;
+  const otherNames = new Set(state.encounter.filter(e => e.name !== name).map(e => e.name));
+  let n = 1;
+  dupes.forEach(e => {
+    while (otherNames.has(name + ' ' + n)) n++;
+    e.name = name + ' ' + n;
+    otherNames.add(e.name);
+    n++;
+  });
+  return true;
 }
 
 // Returns a unique name for the new combatant, renumbering any existing
