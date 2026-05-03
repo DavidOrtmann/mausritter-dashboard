@@ -870,7 +870,7 @@ h3 {
 
 .enc-weapon-line {
   font-family: var(--font-name);
-  font-size: 14px;
+  font-size: 16px;
   border: var(--border-thin);
   padding: 5px 8px;
   margin-top: 6px;
