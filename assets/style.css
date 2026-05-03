@@ -672,33 +672,32 @@ h3 {
 .roster-name-input::placeholder { color: #888; }
 .roster-name-input:focus { outline: 2px solid var(--white); outline-offset: 1px; }
 .roster-card-body {
-  padding: 8px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
 }
 .roster-stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  gap: 6px;
 }
 .roster-stat {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: var(--border-thin);
-  padding: 3px 6px;
+  padding: 4px 8px;
 }
 .roster-stat-label {
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #555;
 }
 .roster-stat-val {
   font-family: var(--font-name);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
@@ -706,28 +705,30 @@ h3 {
   text-align: right;
 }
 .roster-stat-val:active { background: #eee; }
+.roster-stat.stat-hp { grid-column: span 2; }
+.roster-stat.stat-hp .roster-stat-val { font-size: 32px; }
 .roster-weapon-row {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 .roster-weapon-input {
   font-family: var(--font-stat);
-  font-size: 11px;
-  border: var(--border-thin);
-  padding: 4px 6px;
-  min-height: 32px;
+  font-size: 13px;
+  border: var(--border);
+  padding: 6px 8px;
+  min-height: 40px;
   flex: 1;
   background: var(--white);
-  color: #555;
+  color: var(--black);
   border-radius: 0;
 }
 .roster-weapon-input::placeholder { color: #aaa; }
 .roster-dice-select {
   font-family: var(--font-stat);
-  font-size: 11px;
-  border: var(--border-thin);
-  padding: 4px 6px;
-  min-height: 32px;
+  font-size: 13px;
+  border: var(--border);
+  padding: 6px 8px;
+  min-height: 40px;
   background: var(--white);
   color: var(--black);
   border-radius: 0;
@@ -735,18 +736,18 @@ h3 {
 }
 .roster-notes-input {
   font-family: var(--font-stat);
-  font-size: 11px;
-  border: var(--border-thin);
-  padding: 4px 6px;
-  min-height: 32px;
+  font-size: 13px;
+  border: var(--border);
+  padding: 6px 8px;
+  min-height: 40px;
   width: 100%;
   background: var(--white);
-  color: #555;
+  color: var(--black);
   border-radius: 0;
 }
 .roster-weapon-input:focus,
 .roster-dice-select:focus,
-.roster-notes-input:focus { outline: 2px solid var(--black); }
+.roster-notes-input:focus { outline: 2px solid var(--black); outline-offset: -2px; }
 .roster-actions {
   display: flex;
   gap: 4px;
@@ -767,7 +768,10 @@ h3 {
   font-size: 13px;
   padding: 6px 10px;
   min-height: 44px;
+  color: #555;
+  border-color: #555;
 }
+.roster-del-btn:active { background: #555; color: var(--white); }
 
 /* ─── Numpad Modal ──────────────────────────────────────────────────── */
 #numpad-overlay {

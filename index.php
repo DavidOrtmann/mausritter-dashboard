@@ -283,6 +283,12 @@ async function persistState() {
     });
   } catch (e) { console.error('Save failed', e); }
 }
+window.addEventListener('beforeunload', () => {
+  if (saveTimer) {
+    clearTimeout(saveTimer);
+    navigator.sendBeacon('api.php?action=save', JSON.stringify(state));
+  }
+});
 async function loadState() {
   try {
     const r = await fetch('api.php?action=load');
@@ -1402,7 +1408,7 @@ function buildRosterCard(re) {
     </div>
     <div class="roster-card-body">
       <div class="roster-stat-grid">
-        <div class="roster-stat"><span class="roster-stat-label">${statLabel('hp')}</span><span class="roster-stat-val" data-rstat="hp">${re.hp}</span></div>
+        <div class="roster-stat stat-hp"><span class="roster-stat-label">${statLabel('hp')}</span><span class="roster-stat-val" data-rstat="hp">${re.hp}</span></div>
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('str')}</span><span class="roster-stat-val" data-rstat="str">${re.str}</span></div>
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('dex')}</span><span class="roster-stat-val" data-rstat="dex">${re.dex}</span></div>
         <div class="roster-stat"><span class="roster-stat-label">${statLabel('wil')}</span><span class="roster-stat-val" data-rstat="wil">${re.wil}</span></div>
