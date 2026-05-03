@@ -20,26 +20,6 @@ foreach ($supportedLangs as $lang) {
 </head>
 <body>
 
-<!-- ── TURN DRAWER ────────────────────────────────────────────────────── -->
-<div id="turn-drawer">
-  <button id="turn-drawer-handle">
-    <span data-i18n="nav.turns">Turns</span>
-    <span id="turn-drawer-handle-count"></span>
-    <span id="turn-drawer-arrow">▼</span>
-  </button>
-  <div id="turn-drawer-body">
-    <div class="turn-boxes" id="turn-boxes-mini"></div>
-    <div id="turn-drawer-default-ctrls" class="turn-counter-row">
-      <span class="turn-counter-num" id="turn-count-mini">1</span>
-      <button id="btn-next-turn-mini" class="btn-sm" data-i18n="turns.new_cycle">New Cycle</button>
-      <button id="btn-reset-count-mini" class="btn-sm" data-i18n="turns.reset_counter">Reset Counter</button>
-    </div>
-    <div id="turn-drawer-race-ctrls" class="turn-counter-row" style="display:none">
-      <button id="btn-reset-race-mini" class="btn-sm" data-i18n="boat.reset_race">Reset Race</button>
-    </div>
-  </div>
-</div>
-
 <div id="app">
   <div id="tab-content">
 
@@ -183,9 +163,23 @@ foreach ($supportedLangs as $lang) {
 
   </div><!-- #tab-content -->
 
+  <!-- ── TURN PANEL ────────────────────────────────────────────────── -->
+  <div id="turn-panel">
+    <div class="turn-boxes" id="turn-boxes-mini"></div>
+    <div id="turn-panel-default-ctrls" class="turn-counter-row">
+      <span class="turn-counter-num" id="turn-count-mini">1</span>
+      <button id="btn-next-turn-mini" class="btn-sm" data-i18n="turns.new_cycle">New Cycle</button>
+      <button id="btn-reset-count-mini" class="btn-sm" data-i18n="turns.reset_counter">Reset Counter</button>
+    </div>
+    <div id="turn-panel-race-ctrls" class="turn-counter-row" style="display:none">
+      <button id="btn-reset-race-mini" class="btn-sm" data-i18n="boat.reset_race">Reset Race</button>
+    </div>
+    <button id="btn-goto-turns" data-i18n="turns.goto_turns">→ Turns</button>
+  </div>
+
   <!-- ── TAB BAR ──────────────────────────────────────────────────── -->
   <nav id="tab-bar">
-    <button class="active" data-tab="turns" data-i18n="nav.turns">Turns</button>
+    <button id="btn-turn-tab" class="active"><span class="turn-tab-label">T</span><span id="turn-tab-count">1</span></button>
     <button data-tab="players" data-i18n="nav.players">Players</button>
     <button data-tab="roster" data-i18n="nav.roster">Roster</button>
     <button data-tab="encounter" data-i18n="nav.fights">Encounter</button>
@@ -347,13 +341,18 @@ function allEncounterCollapsed() {
 /* ═══════════════════════════════════════════════════════════════════
    TABS
 ═══════════════════════════════════════════════════════════════════ */
-document.querySelectorAll('#tab-bar button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('#tab-bar button').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-  });
+function showTab(name) {
+  document.querySelectorAll('#tab-bar button[data-tab]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const btn = document.querySelector(`#tab-bar button[data-tab="${name}"]`);
+  if (btn) btn.classList.add('active');
+  document.getElementById('turn-panel').classList.remove('open');
+  document.getElementById('btn-turn-tab').classList.toggle('active', name === 'turns');
+}
+
+document.querySelectorAll('#tab-bar button[data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => showTab(btn.dataset.tab));
 });
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -444,7 +443,7 @@ document.getElementById('tod-grid').addEventListener('click', e => {
   scheduleSave();
 });
 
-/* ── Turn Drawer ─────────────────────────────────────────────────── */
+/* ── Turn Panel ──────────────────────────────────────────────────── */
 function renderTurnDrawer() {
   const mini = document.getElementById('turn-boxes-mini');
   mini.innerHTML = '';
@@ -460,9 +459,10 @@ function renderTurnDrawer() {
       box.innerHTML = s === '✓' ? '✓' : `<span class="race-label">${label}</span>`;
       mini.appendChild(box);
     });
-    document.getElementById('turn-drawer-default-ctrls').style.display = 'none';
-    document.getElementById('turn-drawer-race-ctrls').style.display = '';
-    document.getElementById('turn-drawer-handle-count').textContent = '';
+    document.getElementById('turn-panel-default-ctrls').style.display = 'none';
+    document.getElementById('turn-panel-race-ctrls').style.display = '';
+    document.getElementById('turn-tab-count').textContent = '';
+    document.getElementById('turn-count-mini').textContent = '';
   } else {
     for (let i = 0; i < 6; i++) {
       const box = document.createElement('div');
@@ -473,16 +473,19 @@ function renderTurnDrawer() {
       box.textContent = s;
       mini.appendChild(box);
     }
-    document.getElementById('turn-drawer-default-ctrls').style.display = '';
-    document.getElementById('turn-drawer-race-ctrls').style.display = 'none';
-    document.getElementById('turn-drawer-handle-count').textContent = state.turns.count;
+    document.getElementById('turn-panel-default-ctrls').style.display = '';
+    document.getElementById('turn-panel-race-ctrls').style.display = 'none';
+    document.getElementById('turn-tab-count').textContent = state.turns.count;
+    document.getElementById('turn-count-mini').textContent = state.turns.count;
   }
 }
 
-document.getElementById('turn-drawer-handle').addEventListener('click', () => {
-  const drawer = document.getElementById('turn-drawer');
-  drawer.classList.toggle('open');
-  document.getElementById('turn-drawer-arrow').textContent = drawer.classList.contains('open') ? '▲' : '▼';
+document.getElementById('btn-turn-tab').addEventListener('click', () => {
+  document.getElementById('turn-panel').classList.toggle('open');
+});
+
+document.getElementById('btn-goto-turns').addEventListener('click', () => {
+  showTab('turns');
 });
 
 document.getElementById('turn-boxes-mini').addEventListener('click', e => {
@@ -1617,9 +1620,9 @@ function setBoatMode(enabled) {
     }
   }
   if (!enabled) {
-    const activeBtn = document.querySelector('#tab-bar button.active');
+    const activeBtn = document.querySelector('#tab-bar button[data-tab].active');
     if (activeBtn && activeBtn.dataset.tab === 'boat') {
-      document.querySelector('#tab-bar button[data-tab="turns"]').click();
+      showTab('turns');
     }
     state.boats = [];
     state.turns.boxes = new Array(6).fill('');

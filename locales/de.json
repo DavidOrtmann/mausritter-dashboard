@@ -32,7 +32,8 @@
     "enc_dice_reaction_text": "2 feindselig · 3–5 unfreundlich · 6–8 unsicher · 9–11 gesprächig · 12 hilfsbereit",
     "enc_dice_morale_label": "Moral:",
     "enc_dice_morale_text": "WIL-Probe bei: Übermacht zu Beginn · kritischem Schaden · Flucht oder Fall eines Verbündeten",
-    "short_rest_all": "Kurze Rast"
+    "short_rest_all": "Kurze Rast",
+    "goto_turns": "→ Runden"
   },
   "players": {
     "heading": "Mäuse",

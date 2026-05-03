@@ -17,7 +17,7 @@
 - [x] Settings tab: language selector (EN / DE)
 
 ### Tab 1: Turns
-- [x] Persistent turn drawer: 50% grey 48px strip fixed at top of every screen; shows "TURNS" label + current turn count; tap to expand/collapse mini turn tracker (6 boxes + New Cycle / Reset Counter); in boat mode shows race boxes + Reset Race; fully synced with main Turns tab
+- [x] Persistent turn panel: tab bar button shows current turn count ("T" label + count number); tap to slide up a panel above the bar with mini turn tracker (6 boxes + New Cycle / Reset Counter + "→ Turns" link to navigate to full Turns tab); in boat mode shows race boxes + Reset Race; fully synced with main Turns tab
 - [x] Rest action row (default mode only): Short Rest All (opens numpad — GM enters d6+1 roll result, heals all mice by that amount) · Long Rest All · Full Rest All
 - [x] 6-box turn tracker; each box cycles `empty → ✓ (turn passed) → T (torch) → L (electric light) → empty`; first click checks the turn, further clicks track light source type
 - [x] Boxes 3 and 6 have double-border and a faint `!` indicator — visual cue to roll for encounter (per SRD: every 3 turns)
