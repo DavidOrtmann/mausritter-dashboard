@@ -335,7 +335,7 @@ function makeCombatant(overrides = {}) {
   return { id: uuid(), name:'', type:'enemy', hp:{max:6,current:6},
            str:{max:10,current:10}, dex:{max:8,current:8}, wil:{max:6,current:6},
            injured:false, drained:false, encumbered:false, notes:'', defeated:false,
-           initiative:null, armor:0,
+           initiative:null, armor:0, weapon:'', attackDice:'d6',
            ...overrides };
 }
 function clamp(v, mn, mx) { return Math.max(mn, Math.min(mx, v)); }
@@ -962,6 +962,7 @@ function buildEncCard(ec) {
         <div class="ccs-stat"><span class="ccs-label">${statLabel('dex')}</span><span class="ccs-val ccs-tappable" data-popstat="dex">${ec.dex.current}/${ec.dex.max}</span></div>
         <div class="ccs-stat"><span class="ccs-label">${statLabel('wil')}</span><span class="ccs-val ccs-tappable" data-popstat="wil">${ec.wil.current}/${ec.wil.max}</span></div>
       </div>
+      ${!isPC && ec.weapon ? `<div class="enc-weapon-line"><span class="enc-weapon-name">${escHtml(ec.weapon)}</span> <span class="enc-weapon-dice">${t('roster.dice_prefix')}${(ec.attackDice||'d6').slice(1)}</span></div>` : ''}
       ${statusSummary}
     </div>
     <div class="enc-card-body${ec.defeated ? ' collapsed' : ''}">
@@ -982,6 +983,7 @@ function buildEncCard(ec) {
           <span class="csv-armor">${ec.armor ?? 0}</span>
         </span>
       </div>
+      ${!isPC && ec.weapon ? `<div class="enc-weapon-line"><span class="enc-weapon-name">${escHtml(ec.weapon)}</span> <span class="enc-weapon-dice">${t('roster.dice_prefix')}${(ec.attackDice||'d6').slice(1)}</span></div>` : ''}
       <div class="status-row">
         <button class="status-btn${ec.injured?    ' active':''}" data-status="injured">${t('encounter.status_injured')}</button>
         <button class="status-btn${ec.drained?    ' active':''}" data-status="drained">${t('encounter.status_drained')}</button>
@@ -1528,14 +1530,13 @@ function buildRosterCard(re) {
       this.classList.add('flash');
       setTimeout(() => this.classList.remove('flash'), 400);
       const name = resolveEncounterName(re.name);
-      const rawDice = re.attackDice || 'd6';
-      const localDice = t('roster.dice_prefix') + rawDice.slice(1);
-      const weaponInfo = re.weapon ? `${re.weapon} (${localDice})` : '';
-      const notes = [weaponInfo, re.notes].filter(Boolean).join(' · ');
       state.encounter.push(makeCombatant({
-        name, notes, type: 'enemy',
+        name, type: 'enemy',
         hp: stat(re.hp), str: stat(re.str), dex: stat(re.dex), wil: stat(re.wil),
         armor: re.armor ?? 0,
+        weapon: re.weapon || '',
+        attackDice: re.attackDice || 'd6',
+        notes: re.notes || '',
       }));
       renderEncounter();
       scheduleSave();

@@ -871,6 +871,25 @@ h3 {
   margin-bottom: 0;
 }
 
+.enc-weapon-line {
+  font-size: 14px;
+  border: var(--border-thin);
+  padding: 5px 8px;
+  margin-top: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.enc-weapon-name {
+  font-family: var(--font-name);
+  font-size: 15px;
+}
+.enc-weapon-dice {
+  font-family: var(--font-stat);
+  font-size: 13px;
+  color: #555;
+}
+
 .enc-notes-input {
   width: 100%;
   font-family: var(--font-stat);
