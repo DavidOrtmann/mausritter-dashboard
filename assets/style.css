@@ -98,26 +98,19 @@ input:focus { outline: 3px solid var(--black); outline-offset: -3px; }
 }
 
 /* ─── Tab Bar Turn Button ───────────────────────────────────────── */
-#btn-turn-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-}
-.turn-tab-label {
+#btn-turn-tab { color: #b3b3b3; }
+#btn-turn-tab:active { color: var(--white); }
+#turn-tab-label {
   font-family: var(--font-name);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1;
+  font-size: 14px;
+  letter-spacing: 0.04em;
 }
 #turn-tab-count {
   font-family: var(--font-stat);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 1;
 }
+body.boat-mode #turn-tab-label { display: none; }
 
 /* ─── Tab Bar ──────────────────────────────────────────────────────── */
 #tab-bar {

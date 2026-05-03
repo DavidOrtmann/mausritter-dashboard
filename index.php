@@ -179,7 +179,7 @@ foreach ($supportedLangs as $lang) {
 
   <!-- ── TAB BAR ──────────────────────────────────────────────────── -->
   <nav id="tab-bar">
-    <button id="btn-turn-tab" class="active"><span class="turn-tab-label">T</span><span id="turn-tab-count">1</span></button>
+    <button id="btn-turn-tab" class="active"><span id="turn-tab-label" data-i18n="turns.counter_label">Turn</span>&thinsp;<span id="turn-tab-count">1</span></button>
     <button data-tab="players" data-i18n="nav.players">Players</button>
     <button data-tab="roster" data-i18n="nav.roster">Roster</button>
     <button data-tab="encounter" data-i18n="nav.fights">Encounter</button>
