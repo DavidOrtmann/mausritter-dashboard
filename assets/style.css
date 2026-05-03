@@ -872,9 +872,8 @@ h3 {
   font-family: var(--font-name);
   font-size: 13px;
   font-weight: bold;
-  border: var(--border-thin);
-  padding: 5px 8px;
-  margin-top: 6px;
+  padding: 2px 0;
+  margin-top: 4px;
   display: flex;
   align-items: center;
   gap: 6px;
