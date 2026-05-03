@@ -283,7 +283,7 @@ h3 {
   border-bottom: var(--border-thin);
   background: #f4f4f4;
 }
-.card-name-input {
+input.card-name-input {
   flex: 1;
   font-family: var(--font-name);
   font-size: 18px;
@@ -499,7 +499,6 @@ h3 {
   padding: 8px 10px;
   border-bottom: 1px solid #000;
 }
-.enc-card[data-type="pc"] .enc-card-header { border-bottom: none; }
 .enc-card[data-type="enemy"] .enc-card-header {
   background: var(--black);
   color: var(--white);
