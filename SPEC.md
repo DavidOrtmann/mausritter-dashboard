@@ -18,6 +18,7 @@
 
 ### Tab 1: Turns
 - [x] Persistent turn drawer: 50% grey 48px strip fixed at top of every screen; shows "TURNS" label + current turn count; tap to expand/collapse mini turn tracker (6 boxes + New Cycle / Reset Counter); in boat mode shows race boxes + Reset Race; fully synced with main Turns tab
+- [x] Rest action row (default mode only): Short Rest All (opens numpad — GM enters d6+1 roll result, heals all mice by that amount) · Long Rest All · Full Rest All
 - [x] 6-box turn tracker; each box cycles `empty → ✓ (turn passed) → T (torch) → L (electric light) → empty`; first click checks the turn, further clicks track light source type
 - [x] Boxes 3 and 6 have double-border and a faint `!` indicator — visual cue to roll for encounter (per SRD: every 3 turns)
 - [x] Marking a box (empty→T) increments the turn counter; clearing it (L→empty) decrements it
@@ -38,8 +39,9 @@
 - [x] Cards collapsible: collapsed card becomes half-width, showing all four stats (HP/STR/DEX/WIL current/max in a compact 2×2 grid) and any active status badges; two collapsed cards sit side by side, expanded cards span full width; tapping any stat in the collapsed summary opens the damage/heal popover
 - [x] Delete button per card (with confirmation)
 - [x] "Add Player" button (no hard limit; 6 typical); new players are automatically added to the Encounter tab
-- [x] Per-card reset button (⟳) with Long Rest / Full Rest options (Short Rest removed — d6+1 HP is applied manually via Heal)
-- [x] Bulk actions: "Long Rest All" / "Full Rest All"
+- [x] Per-card reset button (⟳) with Long Rest / Full Rest options
+- [x] Bulk rest actions moved to Turns tab: Short Rest All / Long Rest All / Full Rest All
+- [x] "Collapse/Expand All" bulk toggle in tab header
 - [x] Player data persists across session resets (not cleared by "New Encounter")
 - [x] "Pause" / "Resume" button per card: paused players are hidden from the Encounter tab and their card body is greyed out; useful for players sitting out a session
 - [x] Double-tap any max value to edit it via on-screen numpad (native keyboard suppressed); setting a new max also sets current to that value
@@ -76,12 +78,13 @@
 
 ### Tab 4: Roster
 - [x] New "Roster" tab for preparing enemy templates before a fight
-- [x] Half-width card grid (2 columns); each card has an inverted black header with the name and a body with stats, notes, and actions
-- [x] Each card: editable name, HP / STR / DEX / WIL (max values, tap any to edit via numpad), weapon name + attack dice (d4/d6/d8/d10/d12 select), notes field
-- [x] "▶ Add to Encounter" button: copies the template into the Encounter tab as a fresh enemy (all stats at max, new UUID); if weapon is set, formats it as `weapon (dice)` prepended to notes; stays on Roster so multiple enemies can be added quickly
-- [x] Duplicate-name auto-numbering on "▶ Add to Encounter": if "Spinne" already exists in the encounter, the existing entry is renamed "Spinne 1" and the new one arrives as "Spinne 2"; further additions increment the suffix
+- [x] Cards collapsible — mirrors Mice tab: expanded cards are full-width, two collapsed cards sit side by side; HP displayed prominently (32px, full width) in expanded view
+- [x] Each card: inverted black header with name + collapse button; body has HP / STR / DEX / WIL (max values, tap to edit via numpad), armor, weapon name + attack dice (d4/d6/d8/d10/d12 select), notes field
+- [x] Collapsed summary: HP/STR/DEX/WIL in 2×2 grid + "▶ Add to Fight" button — fully functional without expanding
+- [x] "▶ Add to Fight" button (both expanded and collapsed): copies template into Fights tab as a fresh enemy (all stats at max, new UUID); weapon formatted as `weapon (dice)` prepended to notes; stays on Roster for rapid multi-add; flash feedback on tap
+- [x] Duplicate-name auto-numbering: if "Spinne" already exists in the encounter, the existing entry is renamed "Spinne 1" and the new one arrives as "Spinne 2"; further additions increment the suffix
 - [x] "✕" delete button per card
-- [x] "Add Enemy" button at the top of the tab
+- [x] "Add Enemy" + "Collapse/Expand All" buttons at top of tab
 - [x] Roster persists in saved state across sessions
 - [x] Backward-compatible: sessions without `roster` key treat it as empty array; entries without `weapon`/`attackDice` default to empty/`'d6'`
 
@@ -98,9 +101,9 @@
 - [x] Stat labels localised: EN = HP/STR/DEX/WIL, DE = TP/STÄ/GES/WIL
 
 ### Reset Logic
-- [x] Long rest (1 Watch per SRD): restore HP to max — button on each card and "Long Rest All" bulk action
-- [x] Full rest (1 week per SRD): restore HP + STR + DEX + WIL to max, clear all conditions — button on each card and "Full Rest All" bulk action
-- [x] Short rest (1 Turn, d6+1 HP per SRD): no automatic button — GM applies healing manually via the Heal modal
+- [x] Long rest (1 Watch per SRD): restore HP to max — button on each player card; "Long Rest All" bulk action on Turns tab
+- [x] Full rest (1 week per SRD): restore HP + STR + DEX + WIL to max, clear all conditions — button on each player card; "Full Rest All" bulk action on Turns tab
+- [x] Short rest (1 Turn, d6+1 HP per SRD): "Short Rest All" on Turns tab — GM enters the d6+1 roll result into a numpad; heals all mice by that amount (capped at max HP)
 
 ---
 
@@ -224,5 +227,5 @@ mausritter/
 
 > Add new feature requests and change requests here. Claude Code should move items into the Status checklist above when implementing them, and check them off when done.
 
-<!-- all pending changes completed as of 2026-05-03 -->
+<!-- all pending changes completed as of 2026-05-03 (session 2) -->
 

@@ -35,7 +35,7 @@ state = {
 }
 ```
 
-State is auto-saved via `scheduleSave()` (debounced 500 ms → `api.php`).
+State is auto-saved via `scheduleSave()` (debounced 500 ms → `api.php`). A `beforeunload` handler flushes any pending save immediately via `navigator.sendBeacon` so a quick page refresh never loses the last change.
 
 > **`data/session.json` is excluded from SFTP deployment** (`.vscode/sftp.json` ignore list) — the live server's session file is never overwritten by deploys. All state shape changes must therefore be backward-compatible: new fields must default gracefully when missing (e.g. `p.foo ?? defaultValue`), and no field may be renamed or removed without a migration path.
 
@@ -54,7 +54,9 @@ Each tab has a `render*()` function that rebuilds the DOM from state:
 
 `renderTurns()` always calls `renderTurnDrawer()` at the end to keep the persistent drawer in sync. Do not call `renderTurnDrawer()` directly from event handlers — go through `renderTurns()`.
 
-Collapse state for player cards (`playerCollapsed`) and encounter cards (`encCollapsed`) is kept in plain objects keyed by `id` — checked before re-setting defaults on each render so state survives re-renders.
+Collapse state for player cards (`playerCollapsed`), encounter cards (`encCollapsed`), and roster cards (`rosterCollapsed`) is kept in plain objects keyed by `id` — checked before re-setting defaults on each render so state survives re-renders.
+
+Each tab with collapsible cards has a corresponding `updateXxxCollapseAllBtn()` called at the end of its `render*()` function to keep the Collapse/Expand All label in sync.
 
 ## Key helpers
 
@@ -71,7 +73,9 @@ Collapse state for player cards (`playerCollapsed`) and encounter cards (`encCol
 | `setupLongPress(el, cb)` | Long-press gesture |
 | `t(key, vars)` | i18n lookup |
 | `escHtml(str)` | XSS-safe HTML escaping |
-| `updateCollapseAllBtn()` | Sync encounter "Collapse/Expand All" label |
+| `updateCollapseAllBtn()` | Sync Fights "Collapse/Expand All" label |
+| `updatePlayerCollapseAllBtn()` | Sync Mice "Collapse/Expand All" label |
+| `updateRosterCollapseAllBtn()` | Sync Roster "Collapse/Expand All" label |
 | `renderTurnDrawer()` | Sync persistent top drawer with turn state (called by `renderTurns()`) |
 
 ## Common patterns when adding a feature
