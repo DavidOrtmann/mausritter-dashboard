@@ -521,6 +521,7 @@ document.getElementById('btn-reset-race-mini').addEventListener('click', () => {
 ═══════════════════════════════════════════════════════════════════ */
 const playerCollapsed = {};  // id → bool; persists across re-renders
 const encCollapsed = {};     // id → bool; persists across re-renders
+const rosterCollapsed = {};  // id → bool; persists across re-renders
 
 function buildPlayerCard(p) {
   const card = document.createElement('div');
@@ -1405,6 +1406,15 @@ function buildRosterCard(re) {
   card.innerHTML = `
     <div class="roster-card-header">
       <input class="roster-name-input" type="text" placeholder="${escHtml(t('roster.name_placeholder'))}" value="${escHtml(re.name)}">
+      <button class="card-collapse-btn btn-sm" title="${escHtml(t('players.tip_collapse'))}">▲</button>
+    </div>
+    <div class="roster-collapsed-summary" style="display:none">
+      <div class="ccs-stat-grid">
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('hp')}</span><span class="ccs-val">${re.hp}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('str')}</span><span class="ccs-val">${re.str}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('dex')}</span><span class="ccs-val">${re.dex}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('wil')}</span><span class="ccs-val">${re.wil}</span></div>
+      </div>
     </div>
     <div class="roster-card-body">
       <div class="roster-stat-grid">
@@ -1427,6 +1437,25 @@ function buildRosterCard(re) {
 
   card.querySelector('.roster-name-input').addEventListener('input', e => {
     re.name = e.target.value; scheduleSave();
+  });
+
+  // Collapse — mirrors player card behaviour
+  if (!(re.id in rosterCollapsed)) rosterCollapsed[re.id] = false;
+  let collapsed = rosterCollapsed[re.id];
+  const colBtn = card.querySelector('.card-collapse-btn');
+  const body = card.querySelector('.roster-card-body');
+  const summary = card.querySelector('.roster-collapsed-summary');
+  const applyCollapse = () => {
+    body.classList.toggle('collapsed', collapsed);
+    summary.style.display = collapsed ? 'block' : 'none';
+    card.classList.toggle('collapsed-card', collapsed);
+    colBtn.textContent = collapsed ? '▼' : '▲';
+  };
+  applyCollapse();
+  colBtn.addEventListener('click', () => {
+    collapsed = !collapsed;
+    rosterCollapsed[re.id] = collapsed;
+    applyCollapse();
   });
 
   card.querySelectorAll('.roster-stat-val').forEach(el => {

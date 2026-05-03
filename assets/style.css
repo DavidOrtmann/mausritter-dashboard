@@ -648,17 +648,40 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  align-items: start;
 }
 .roster-card {
   border: var(--border);
   display: flex;
   flex-direction: column;
+  grid-column: span 2;
+}
+.roster-card.collapsed-card {
+  grid-column: span 1;
 }
 .roster-card-header {
   background: var(--black);
   padding: 6px 8px;
   border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+.roster-card-header .card-collapse-btn {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+  flex-shrink: 0;
+}
+.roster-card-header .card-collapse-btn:active {
+  background: var(--white);
+  color: var(--black);
+}
+.roster-collapsed-summary {
+  padding: 8px;
+  border-top: var(--border-thin);
+}
+.roster-card-body.collapsed { display: none; }
 .roster-name-input {
   font-family: var(--font-name);
   font-size: 14px;
