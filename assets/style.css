@@ -98,8 +98,9 @@ input:focus { outline: 3px solid var(--black); outline-offset: -3px; }
 }
 
 /* ─── Tab Bar Turn Button ───────────────────────────────────────── */
-#btn-turn-tab { color: #b3b3b3; }
-#btn-turn-tab:active { color: var(--white); }
+#btn-turn-tab,
+#tab-bar #btn-turn-tab.active { background: #999; color: var(--black); }
+#btn-turn-tab:active { background: #777; color: var(--black); }
 #turn-tab-label {
   font-family: var(--font-name);
   font-size: 14px;
