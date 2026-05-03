@@ -1167,7 +1167,7 @@ let popoverMode = 'damage'; // 'damage' | 'heal'
 let undoStack = {};  // id -> snapshot
 
 function updatePopoverTitle() {
-  const sk = popoverCtx ? popoverCtx.statKey.toUpperCase() : '';
+  const sk = popoverCtx ? statLabel(popoverCtx.statKey) : '';
   document.getElementById('popover-title').textContent =
     popoverMode === 'damage' ? t('popover.damage_title', { stat: sk }) : t('popover.heal_title', { stat: sk });
   document.getElementById('popover-apply').textContent =
