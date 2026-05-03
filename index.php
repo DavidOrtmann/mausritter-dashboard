@@ -58,6 +58,12 @@ foreach ($supportedLangs as $lang) {
         <button id="btn-reset-count" class="btn-sm" data-i18n="turns.reset_counter">Reset Counter</button>
       </div>
 
+      <div class="turn-counter-row default-mode-only">
+        <button id="btn-short-rest-all" class="btn-sm" data-i18n="turns.short_rest_all">Short Rest</button>
+        <button id="btn-long-rest-all" class="btn-sm" data-i18n="players.long_rest_all">Long Rest All</button>
+        <button id="btn-full-rest-all" class="btn-sm" data-i18n="players.full_rest_all">Full Rest All</button>
+      </div>
+
       <div class="turn-counter-row boat-mode-only">
         <button id="btn-reset-race" class="btn-sm" data-i18n="boat.reset_race">Reset Race</button>
       </div>
@@ -119,8 +125,7 @@ foreach ($supportedLangs as $lang) {
       <h2 data-i18n="players.heading">Players</h2>
       <div class="bulk-row">
         <button id="btn-add-player" class="btn-inverted" data-i18n="players.add">+ Add Player</button>
-        <button id="btn-long-rest-all" class="btn-sm" data-i18n="players.long_rest_all">Long Rest All</button>
-        <button id="btn-full-rest-all" class="btn-sm" data-i18n="players.full_rest_all">Full Rest All</button>
+        <button id="btn-collapse-all-players" class="btn-sm">Collapse All</button>
       </div>
       <div id="player-list"></div>
     </div>
@@ -130,6 +135,7 @@ foreach ($supportedLangs as $lang) {
       <h2 data-i18n="roster.heading">Roster</h2>
       <div class="row-gap">
         <button id="btn-add-roster" class="btn-inverted" data-i18n="roster.add">+ Add Enemy</button>
+        <button id="btn-collapse-all-roster" class="btn-sm">Collapse All</button>
       </div>
       <div class="roster-grid" id="roster-grid"></div>
     </div>
@@ -802,6 +808,7 @@ function renderPlayers() {
   const list = document.getElementById('player-list');
   list.innerHTML = '';
   state.players.forEach(p => list.appendChild(buildPlayerCard(p)));
+  updatePlayerCollapseAllBtn();
 }
 
 document.getElementById('btn-add-player').addEventListener('click', () => {
@@ -811,6 +818,18 @@ document.getElementById('btn-add-player').addEventListener('click', () => {
   renderPlayers();
   renderEncounter();
   scheduleSave();
+});
+
+document.getElementById('btn-short-rest-all').addEventListener('click', () => {
+  openNumpad(t('turns.short_rest_all'), 1, v => {
+    state.players.forEach(p => {
+      p.hp.current = Math.min(p.hp.current + v, p.hp.max);
+      syncEncounterPC(p);
+    });
+    renderPlayers();
+    renderEncounter();
+    scheduleSave();
+  }, 0);
 });
 
 document.getElementById('btn-long-rest-all').addEventListener('click', () => {
@@ -825,6 +844,28 @@ document.getElementById('btn-full-rest-all').addEventListener('click', () => {
   renderPlayers();
   renderEncounter();
   scheduleSave();
+});
+
+function allPlayersCollapsed() {
+  const active = state.players.filter(p => !p.paused);
+  return active.length > 0 && active.every(p => playerCollapsed[p.id]);
+}
+function updatePlayerCollapseAllBtn() {
+  const btn = document.getElementById('btn-collapse-all-players');
+  if (btn) btn.textContent = allPlayersCollapsed() ? t('encounter.expand_all') : t('encounter.collapse_all');
+}
+document.getElementById('btn-collapse-all-players').addEventListener('click', () => {
+  const newCollapsed = !allPlayersCollapsed();
+  state.players.filter(p => !p.paused).forEach(p => {
+    playerCollapsed[p.id] = newCollapsed;
+    const card = document.querySelector(`#player-list [data-id="${p.id}"]`);
+    if (!card) return;
+    card.querySelector('.card-body').classList.toggle('collapsed', newCollapsed);
+    card.querySelector('.card-collapsed-summary').style.display = newCollapsed ? 'block' : 'none';
+    card.classList.toggle('collapsed-card', newCollapsed);
+    card.querySelector('.card-collapse-btn').textContent = newCollapsed ? '▼' : '▲';
+  });
+  updatePlayerCollapseAllBtn();
 });
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1415,6 +1456,7 @@ function buildRosterCard(re) {
         <div class="ccs-stat"><span class="ccs-label">${statLabel('dex')}</span><span class="ccs-val">${re.dex}</span></div>
         <div class="ccs-stat"><span class="ccs-label">${statLabel('wil')}</span><span class="ccs-val">${re.wil}</span></div>
       </div>
+      <button class="roster-add-btn btn-inverted" style="width:100%;margin-top:6px">${t('roster.fight')}</button>
     </div>
     <div class="roster-card-body">
       <div class="roster-stat-grid">
@@ -1481,21 +1523,23 @@ function buildRosterCard(re) {
     re.notes = e.target.value; scheduleSave();
   });
 
-  card.querySelector('.roster-add-btn').addEventListener('click', function() {
-    this.classList.add('flash');
-    setTimeout(() => this.classList.remove('flash'), 400);
-    const name = resolveEncounterName(re.name);
-    const rawDice = re.attackDice || 'd6';
-    const localDice = t('roster.dice_prefix') + rawDice.slice(1);
-    const weaponInfo = re.weapon ? `${re.weapon} (${localDice})` : '';
-    const notes = [weaponInfo, re.notes].filter(Boolean).join(' · ');
-    state.encounter.push(makeCombatant({
-      name, notes, type: 'enemy',
-      hp: stat(re.hp), str: stat(re.str), dex: stat(re.dex), wil: stat(re.wil),
-      armor: re.armor ?? 0,
-    }));
-    renderEncounter();
-    scheduleSave();
+  card.querySelectorAll('.roster-add-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.classList.add('flash');
+      setTimeout(() => this.classList.remove('flash'), 400);
+      const name = resolveEncounterName(re.name);
+      const rawDice = re.attackDice || 'd6';
+      const localDice = t('roster.dice_prefix') + rawDice.slice(1);
+      const weaponInfo = re.weapon ? `${re.weapon} (${localDice})` : '';
+      const notes = [weaponInfo, re.notes].filter(Boolean).join(' · ');
+      state.encounter.push(makeCombatant({
+        name, notes, type: 'enemy',
+        hp: stat(re.hp), str: stat(re.str), dex: stat(re.dex), wil: stat(re.wil),
+        armor: re.armor ?? 0,
+      }));
+      renderEncounter();
+      scheduleSave();
+    });
   });
 
   card.querySelector('.roster-del-btn').addEventListener('click', () => {
@@ -1507,11 +1551,33 @@ function buildRosterCard(re) {
   return card;
 }
 
+function allRosterCollapsed() {
+  return state.roster.length > 0 && state.roster.every(re => rosterCollapsed[re.id]);
+}
+function updateRosterCollapseAllBtn() {
+  const btn = document.getElementById('btn-collapse-all-roster');
+  if (btn) btn.textContent = allRosterCollapsed() ? t('encounter.expand_all') : t('encounter.collapse_all');
+}
 function renderRoster() {
   const grid = document.getElementById('roster-grid');
   grid.innerHTML = '';
   state.roster.forEach(re => grid.appendChild(buildRosterCard(re)));
+  updateRosterCollapseAllBtn();
 }
+
+document.getElementById('btn-collapse-all-roster').addEventListener('click', () => {
+  const newCollapsed = !allRosterCollapsed();
+  state.roster.forEach(re => {
+    rosterCollapsed[re.id] = newCollapsed;
+    const card = document.querySelector(`#roster-grid [data-id="${re.id}"]`);
+    if (!card) return;
+    card.querySelector('.roster-card-body').classList.toggle('collapsed', newCollapsed);
+    card.querySelector('.roster-collapsed-summary').style.display = newCollapsed ? 'block' : 'none';
+    card.classList.toggle('collapsed-card', newCollapsed);
+    card.querySelector('.card-collapse-btn').textContent = newCollapsed ? '▼' : '▲';
+  });
+  updateRosterCollapseAllBtn();
+});
 
 document.getElementById('btn-add-roster').addEventListener('click', () => {
   state.roster.push(makeRosterEnemy());

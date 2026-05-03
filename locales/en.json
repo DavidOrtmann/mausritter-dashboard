@@ -31,7 +31,8 @@
     "enc_dice_reaction_label": "Reaction (2d6):",
     "enc_dice_reaction_text": "2 hostile · 3–5 unfriendly · 6–8 unsure · 9–11 talkative · 12 helpful",
     "enc_dice_morale_label": "Morale:",
-    "enc_dice_morale_text": "WIL save when: outmatched at start · takes critical damage · sees ally flee or fall"
+    "enc_dice_morale_text": "WIL save when: outmatched at start · takes critical damage · sees ally flee or fall",
+    "short_rest_all": "Short Rest"
   },
   "players": {
     "heading": "Players",
