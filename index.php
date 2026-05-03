@@ -1170,7 +1170,7 @@ function renderEncounter() {
   sorted.forEach(ec => list.appendChild(buildEncCard(ec)));
   updateCollapseAllBtn();
   if (currentTurnId) {
-    if (!state.encounter.find(e => e.id === currentTurnId)) {
+    if (!state.encounter.find(e => e.id === currentTurnId && !e.defeated)) {
       currentTurnId = null;
     } else {
       const cur = list.querySelector(`[data-id="${currentTurnId}"]`);
