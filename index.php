@@ -462,8 +462,8 @@ function renderTurnDrawer() {
     });
     document.getElementById('turn-panel-default-ctrls').style.display = 'none';
     document.getElementById('turn-panel-race-ctrls').style.display = '';
-    document.getElementById('turn-tab-count').textContent = '';
-    document.getElementById('turn-count-mini').textContent = '';
+    document.getElementById('turn-tab-count').textContent = '—';
+    document.getElementById('turn-count-mini').textContent = '—';
   } else {
     for (let i = 0; i < 6; i++) {
       const box = document.createElement('div');
