@@ -9,6 +9,7 @@
   --font-name: 'Special Elite', 'Courier Prime', monospace;
   --font-stat: 'IBM Plex Mono', 'Source Code Pro', monospace;
   --tab-h: 56px;
+  --drawer-handle-h: 48px;
   --pip-size: 14px;
   --pip-gap: 2px;
 }
@@ -69,8 +70,54 @@ input:focus { outline: 3px solid var(--black); outline-offset: -3px; }
   flex: 1;
   overflow-y: auto;
   padding: 12px;
+  padding-top: calc(var(--drawer-handle-h) + 12px);
   padding-bottom: calc(var(--tab-h) + 12px);
 }
+
+/* ─── Turn Drawer ──────────────────────────────────────────────────── */
+#turn-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 640px;
+  margin: 0 auto;
+  z-index: 150;
+  background: var(--white);
+}
+#turn-drawer-handle {
+  width: 100%;
+  height: var(--drawer-handle-h);
+  min-height: var(--drawer-handle-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: #808080;
+  color: var(--white);
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-name);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+#turn-drawer-handle:active { background: #666; }
+#turn-drawer-handle-count {
+  font-family: var(--font-stat);
+  font-size: 20px;
+  font-weight: bold;
+}
+#turn-drawer-arrow { font-size: 12px; opacity: 0.7; }
+#turn-drawer-body {
+  display: none;
+  padding: 8px;
+  border-bottom: var(--border);
+}
+#turn-drawer.open #turn-drawer-body { display: block; }
+#turn-drawer .turn-box { min-height: 44px; font-size: 18px; }
+#turn-drawer .turn-boxes { margin-bottom: 8px; }
+#turn-drawer .turn-counter-row { margin-bottom: 0; }
 
 /* ─── Tab Bar ──────────────────────────────────────────────────────── */
 #tab-bar {

@@ -52,6 +52,8 @@ State is auto-saved via `scheduleSave()` (debounced 500 ms → `api.php`).
 Each tab has a `render*()` function that rebuilds the DOM from state:
 `renderTurns()` / `renderPlayers()` / `renderRoster()` / `renderEncounter()` / `renderBoats()`
 
+`renderTurns()` always calls `renderTurnDrawer()` at the end to keep the persistent drawer in sync. Do not call `renderTurnDrawer()` directly from event handlers — go through `renderTurns()`.
+
 Collapse state for player cards (`playerCollapsed`) and encounter cards (`encCollapsed`) is kept in plain objects keyed by `id` — checked before re-setting defaults on each render so state survives re-renders.
 
 ## Key helpers
@@ -70,6 +72,7 @@ Collapse state for player cards (`playerCollapsed`) and encounter cards (`encCol
 | `t(key, vars)` | i18n lookup |
 | `escHtml(str)` | XSS-safe HTML escaping |
 | `updateCollapseAllBtn()` | Sync encounter "Collapse/Expand All" label |
+| `renderTurnDrawer()` | Sync persistent top drawer with turn state (called by `renderTurns()`) |
 
 ## Common patterns when adding a feature
 

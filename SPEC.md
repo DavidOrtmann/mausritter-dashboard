@@ -17,6 +17,7 @@
 - [x] Settings tab: language selector (EN / DE)
 
 ### Tab 1: Turns
+- [x] Persistent turn drawer: 50% grey 48px strip fixed at top of every screen; shows "TURNS" label + current turn count; tap to expand/collapse mini turn tracker (6 boxes + New Cycle / Reset Counter); in boat mode shows race boxes + Reset Race; fully synced with main Turns tab
 - [x] 6-box turn tracker; each box cycles `empty → ✓ (turn passed) → T (torch) → L (electric light) → empty`; first click checks the turn, further clicks track light source type
 - [x] Boxes 3 and 6 have double-border and a faint `!` indicator — visual cue to roll for encounter (per SRD: every 3 turns)
 - [x] Marking a box (empty→T) increments the turn counter; clearing it (L→empty) decrements it
@@ -34,7 +35,7 @@
 - [x] HP displayed largest/most prominently per card
 - [x] Status toggles per card: Injured / Drained / Encumbered
 - [x] Visual flag on affected stat labels when a status is active
-- [x] Cards collapsible: collapsed card becomes half-width, showing all four stats (HP/STR/DEX/WIL current/max in a compact 2×2 grid) and any active status badges; two collapsed cards sit side by side, expanded cards span full width
+- [x] Cards collapsible: collapsed card becomes half-width, showing all four stats (HP/STR/DEX/WIL current/max in a compact 2×2 grid) and any active status badges; two collapsed cards sit side by side, expanded cards span full width; tapping any stat in the collapsed summary opens the damage/heal popover
 - [x] Delete button per card (with confirmation)
 - [x] "Add Player" button (no hard limit; 6 typical); new players are automatically added to the Encounter tab
 - [x] Per-card reset button (⟳) with Long Rest / Full Rest options (Short Rest removed — d6+1 HP is applied manually via Heal)
@@ -223,5 +224,5 @@ mausritter/
 
 > Add new feature requests and change requests here. Claude Code should move items into the Status checklist above when implementing them, and check them off when done.
 
-<!-- all pending changes completed as of 2026-04-23 -->
+<!-- all pending changes completed as of 2026-05-03 -->
 

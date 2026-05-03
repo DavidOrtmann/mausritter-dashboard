@@ -19,6 +19,27 @@ foreach ($supportedLangs as $lang) {
   <script>const LOCALES = <?= json_encode($locales) ?>;</script>
 </head>
 <body>
+
+<!-- ── TURN DRAWER ────────────────────────────────────────────────────── -->
+<div id="turn-drawer">
+  <button id="turn-drawer-handle">
+    <span data-i18n="nav.turns">Turns</span>
+    <span id="turn-drawer-handle-count"></span>
+    <span id="turn-drawer-arrow">▼</span>
+  </button>
+  <div id="turn-drawer-body">
+    <div class="turn-boxes" id="turn-boxes-mini"></div>
+    <div id="turn-drawer-default-ctrls" class="turn-counter-row">
+      <span class="turn-counter-num" id="turn-count-mini">1</span>
+      <button id="btn-next-turn-mini" class="btn-sm" data-i18n="turns.new_cycle">New Cycle</button>
+      <button id="btn-reset-count-mini" class="btn-sm" data-i18n="turns.reset_counter">Reset Counter</button>
+    </div>
+    <div id="turn-drawer-race-ctrls" class="turn-counter-row" style="display:none">
+      <button id="btn-reset-race-mini" class="btn-sm" data-i18n="boat.reset_race">Reset Race</button>
+    </div>
+  </div>
+</div>
+
 <div id="app">
   <div id="tab-content">
 
@@ -364,6 +385,7 @@ function renderTurns() {
   document.querySelectorAll('.tod-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tod === state.turns.timeOfDay);
   });
+  renderTurnDrawer();
 }
 
 document.getElementById('turn-boxes').addEventListener('click', e => {
@@ -410,6 +432,83 @@ document.getElementById('tod-grid').addEventListener('click', e => {
   scheduleSave();
 });
 
+/* ── Turn Drawer ─────────────────────────────────────────────────── */
+function renderTurnDrawer() {
+  const mini = document.getElementById('turn-boxes-mini');
+  mini.innerHTML = '';
+  mini.classList.toggle('race-mode', boatMode);
+
+  if (boatMode) {
+    RACE_LABELS.forEach((label, i) => {
+      const box = document.createElement('div');
+      box.className = 'turn-box';
+      box.dataset.index = i;
+      const s = state.turns.boxes[i] || '';
+      box.dataset.state = s;
+      box.innerHTML = s === '✓' ? '✓' : `<span class="race-label">${label}</span>`;
+      mini.appendChild(box);
+    });
+    document.getElementById('turn-drawer-default-ctrls').style.display = 'none';
+    document.getElementById('turn-drawer-race-ctrls').style.display = '';
+    document.getElementById('turn-drawer-handle-count').textContent = '';
+  } else {
+    for (let i = 0; i < 6; i++) {
+      const box = document.createElement('div');
+      box.className = 'turn-box' + (i === 2 || i === 5 ? ' encounter-box' : '');
+      box.dataset.index = i;
+      const s = state.turns.boxes[i] || '';
+      box.dataset.state = s;
+      box.textContent = s;
+      mini.appendChild(box);
+    }
+    document.getElementById('turn-drawer-default-ctrls').style.display = '';
+    document.getElementById('turn-drawer-race-ctrls').style.display = 'none';
+    document.getElementById('turn-drawer-handle-count').textContent = state.turns.count;
+  }
+}
+
+document.getElementById('turn-drawer-handle').addEventListener('click', () => {
+  const drawer = document.getElementById('turn-drawer');
+  drawer.classList.toggle('open');
+  document.getElementById('turn-drawer-arrow').textContent = drawer.classList.contains('open') ? '▲' : '▼';
+});
+
+document.getElementById('turn-boxes-mini').addEventListener('click', e => {
+  const box = e.target.closest('.turn-box');
+  if (!box) return;
+  const i = parseInt(box.dataset.index);
+  if (boatMode) {
+    state.turns.boxes[i] = state.turns.boxes[i] === '✓' ? '' : '✓';
+  } else {
+    const prev = state.turns.boxes[i];
+    const next = TURN_CYCLE[(TURN_CYCLE.indexOf(prev) + 1) % TURN_CYCLE.length];
+    state.turns.boxes[i] = next;
+    if (prev === '' && next !== '') state.turns.count++;
+    if (prev !== '' && next === '') state.turns.count = Math.max(1, state.turns.count - 1);
+  }
+  renderTurns();
+  scheduleSave();
+});
+
+document.getElementById('btn-next-turn-mini').addEventListener('click', () => {
+  state.turns.boxes = new Array(6).fill('');
+  renderTurns();
+  scheduleSave();
+});
+
+document.getElementById('btn-reset-count-mini').addEventListener('click', () => {
+  state.turns.count = 1;
+  state.turns.boxes = new Array(6).fill('');
+  renderTurns();
+  scheduleSave();
+});
+
+document.getElementById('btn-reset-race-mini').addEventListener('click', () => {
+  state.turns.boxes = new Array(11).fill('');
+  renderTurns();
+  scheduleSave();
+});
+
 
 /* ═══════════════════════════════════════════════════════════════════
    PLAYERS
@@ -443,10 +542,10 @@ function buildPlayerCard(p) {
     </div>
     <div class="card-collapsed-summary" style="display:none">
       <div class="ccs-stat-grid">
-        <div class="ccs-stat"><span class="ccs-label">${statLabel('hp')}</span><span class="ccs-val">${p.hp.current}/${p.hp.max}</span></div>
-        <div class="ccs-stat"><span class="ccs-label">${statLabel('str')}</span><span class="ccs-val">${p.str.current}/${p.str.max}</span></div>
-        <div class="ccs-stat"><span class="ccs-label">${statLabel('dex')}</span><span class="ccs-val">${p.dex.current}/${p.dex.max}</span></div>
-        <div class="ccs-stat"><span class="ccs-label">${statLabel('wil')}</span><span class="ccs-val">${p.wil.current}/${p.wil.max}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('hp')}</span><span class="ccs-val ccs-tappable" data-popstat="hp">${p.hp.current}/${p.hp.max}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('str')}</span><span class="ccs-val ccs-tappable" data-popstat="str">${p.str.current}/${p.str.max}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('dex')}</span><span class="ccs-val ccs-tappable" data-popstat="dex">${p.dex.current}/${p.dex.max}</span></div>
+        <div class="ccs-stat"><span class="ccs-label">${statLabel('wil')}</span><span class="ccs-val ccs-tappable" data-popstat="wil">${p.wil.current}/${p.wil.max}</span></div>
       </div>
       ${statusSummary}
     </div>
@@ -531,6 +630,13 @@ function buildPlayerCard(p) {
     collapsed = !collapsed;
     playerCollapsed[p.id] = collapsed;
     applyCollapse();
+  });
+
+  // Tappable stats in collapsed summary → damage/heal popover
+  card.querySelectorAll('.card-collapsed-summary .ccs-tappable').forEach(el => {
+    el.addEventListener('click', () => {
+      openPopover({ mode: 'damage', statKey: el.dataset.popstat, sourceId: p.id, source: 'player' });
+    });
   });
 
   // Stat current: open damage popover
