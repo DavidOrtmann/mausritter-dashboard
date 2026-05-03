@@ -80,7 +80,8 @@
     "type_pc": "PC",
     "type_enemy": "ENEMY",
     "collapse_all": "Collapse All",
-    "expand_all": "Expand All"
+    "expand_all": "Expand All",
+    "next_turn": "Next"
   },
   "roster": {
     "heading": "Roster",

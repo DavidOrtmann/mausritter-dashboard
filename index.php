@@ -131,6 +131,7 @@ foreach ($supportedLangs as $lang) {
         <button id="btn-new-encounter" class="btn-sm" data-i18n="encounter.new_encounter">New Encounter</button>
       </div>
       <div id="encounter-list"></div>
+      <button id="btn-next-combatant" class="btn-inverted" data-i18n="encounter.next_turn">Next</button>
     </div>
 
     <!-- ── TAB 5: BOAT ────────────────────────────────────────────── -->
@@ -530,6 +531,7 @@ document.getElementById('btn-reset-race-mini').addEventListener('click', () => {
 ═══════════════════════════════════════════════════════════════════ */
 const playerCollapsed = {};  // id → bool; persists across re-renders
 const encCollapsed = {};     // id → bool; persists across re-renders
+let currentTurnId = null;    // id of highlighted combatant
 const rosterCollapsed = {};  // id → bool; persists across re-renders
 
 function buildPlayerCard(p) {
@@ -1167,6 +1169,14 @@ function renderEncounter() {
     : state.encounter;
   sorted.forEach(ec => list.appendChild(buildEncCard(ec)));
   updateCollapseAllBtn();
+  if (currentTurnId) {
+    if (!state.encounter.find(e => e.id === currentTurnId)) {
+      currentTurnId = null;
+    } else {
+      const cur = list.querySelector(`[data-id="${currentTurnId}"]`);
+      if (cur) cur.classList.add('current-turn');
+    }
+  }
 }
 
 
@@ -1208,8 +1218,20 @@ document.getElementById('btn-clear-initiative').addEventListener('click', () => 
 document.getElementById('btn-new-encounter').addEventListener('click', () => {
   if (!confirm(t('encounter.confirm_new'))) return;
   state.encounter = state.encounter.filter(e => e.type === 'pc');
+  currentTurnId = null;
   renderEncounter();
   scheduleSave();
+});
+
+document.getElementById('btn-next-combatant').addEventListener('click', () => {
+  const cards = [...document.querySelectorAll('#encounter-list .enc-card:not(.defeated)')];
+  if (cards.length === 0) return;
+  const currentIdx = cards.findIndex(c => c.dataset.id === currentTurnId);
+  const nextIdx = (currentIdx + 1) % cards.length;
+  cards.forEach(c => c.classList.remove('current-turn'));
+  currentTurnId = cards[nextIdx].dataset.id;
+  cards[nextIdx].classList.add('current-turn');
+  cards[nextIdx].scrollIntoView({ block: 'nearest' });
 });
 
 /* ═══════════════════════════════════════════════════════════════════

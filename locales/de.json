@@ -80,7 +80,8 @@
     "type_pc": "SC",
     "type_enemy": "FEIND",
     "collapse_all": "Alle einklappen",
-    "expand_all": "Alle ausklappen"
+    "expand_all": "Alle ausklappen",
+    "next_turn": "Weiter"
   },
   "roster": {
     "heading": "Gegner",
