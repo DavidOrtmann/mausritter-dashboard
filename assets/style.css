@@ -490,7 +490,7 @@ h3 {
 /* type variants */
 .enc-card[data-type="pc"]    { border-width: 1px; }
 .enc-card[data-type="npc"]   { border-style: dashed; }
-.enc-card[data-type="enemy"] { border-width: 2px; }
+.enc-card[data-type="enemy"] { border-width: 1px; }
 
 .enc-card-header {
   display: flex;
