@@ -529,7 +529,7 @@ input.card-name-input {
   font-size: 16px;
   font-weight: bold;
   min-width: 40px;
-  padding: 0 8px;
+  padding: 3px 8px 0;
   line-height: 1;
   justify-content: center;
   align-items: center;
