@@ -462,8 +462,9 @@ function renderTurnDrawer() {
     });
     document.getElementById('turn-panel-default-ctrls').style.display = 'none';
     document.getElementById('turn-panel-race-ctrls').style.display = '';
-    document.getElementById('turn-tab-count').textContent = '—';
-    document.getElementById('turn-count-mini').textContent = '—';
+    const racePos = state.turns.boxes.filter(b => b === '✓').length || 'S';
+    document.getElementById('turn-tab-count').textContent = racePos;
+    document.getElementById('turn-count-mini').textContent = racePos;
   } else {
     for (let i = 0; i < 6; i++) {
       const box = document.createElement('div');
