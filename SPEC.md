@@ -12,7 +12,11 @@
 - [x] Implement write safety in `api.php` via `flock()`
 - [x] Auto-save on state change, debounced 500ms
 - [x] State hydration on page load via `fetch()` GET
-- [x] Bottom tab bar navigation (Turns / Players / Roster / Fights / Settings)
+- [x] Bottom tab bar navigation (Turns / Players / Roster / Fights / Notes / Settings)
+- [x] `Cache-Control: no-store` on both `index.php` and `api.php` — prevents stale page caching on Boox/mobile Chrome
+- [x] 30-second background poll: if no local save is pending and no save fired in the last 5 seconds, fetches server state and re-renders if it differs — keeps multiple devices in sync without a manual reload
+- [x] `stateLoaded` guard: `scheduleSave()` and the `beforeunload` beacon are both suppressed until `loadState()` completes successfully — prevents an early save overwriting server state during page load
+- [x] Force Reload button in Settings: navigates to `?_=<timestamp>` to bypass browser cache; clears any pending save timer before navigating so the `beforeunload` beacon cannot overwrite newer server state
 - [x] Localisation infrastructure: `locales/en.json` + `locales/de.json`, `t(key, vars)` lookup with `{placeholder}` substitution, `applyI18n()` walks `data-i18n` attributes on page load; language preference stored in `localStorage`, change triggers page reload
 - [x] Settings tab: language selector (EN / DE)
 
@@ -61,7 +65,7 @@
 - [x] Notes field: single free-text line per card
 - [x] Cards collapsible: collapsed card becomes half-width (2-column grid); collapsed summary shows all four stats tappable for damage/heal; initiative always visible in header badge
 - [x] Collapse state persists across re-renders (e.g. after damage applied)
-- [x] Defeated toggle: strikes through and collapses card, keeps it visible
+- [x] Defeated toggle: strikes through the name (truncated with ellipsis if too long), collapses card to header-only (collapsed summary also hidden), keeps it visible with Revive button
 - [x] "Clear Defeated" button
 - [x] "New Encounter" button: clears non-PC combatants, confirmation required
 - [x] Double-tap any max value (HP, STR pip bars; DEX, WIL compact) to edit via on-screen numpad; setting a new max also sets current to that value
@@ -82,11 +86,16 @@
 - [x] Each card: inverted black header with name + collapse button; body has HP / STR / DEX / WIL (max values, tap to edit via numpad), armor, weapon name + attack dice (d4/d6/d8/d10/d12 select), notes field
 - [x] Collapsed summary: HP/STR/DEX/WIL in 2×2 grid + "▶ Add to Fight" button — fully functional without expanding
 - [x] "▶ Add to Fight" button (both expanded and collapsed): copies template into Fights tab as a fresh enemy (all stats at max, new UUID); weapon formatted as `weapon (dice)` prepended to notes; stays on Roster for rapid multi-add; flash feedback on tap
-- [x] Duplicate-name auto-numbering: if "Spinne" already exists in the encounter, the existing entry is renamed "Spinne 1" and the new one arrives as "Spinne 2"; further additions increment the suffix
+- [x] Duplicate-name auto-numbering: if "Spinne" already exists in the encounter, the existing entry is renamed "1. Spinne" and the new one arrives as "2. Spinne"; further additions increment the prefix number
 - [x] "✕" delete button per card
 - [x] "Add Enemy" + "Collapse/Expand All" buttons at top of tab
 - [x] Roster persists in saved state across sessions
 - [x] Backward-compatible: sessions without `roster` key treat it as empty array; entries without `weapon`/`attackDice` default to empty/`'d6'`
+
+### Tab 5: Notes
+- [x] Full-screen plain-text textarea with no border, system-ui sans-serif font at 14px
+- [x] Content saved as `state.notes` (string) — persists to server like all other state
+- [x] Backward-compatible: sessions without `notes` key default to empty string
 
 ### Boat Mode (Froschakel adventure)
 
@@ -165,7 +174,8 @@
       "notes": "morale 6, sticky webs",
       "defeated": false
     }
-  ]
+  ],
+  "notes": "Free-form adventure notes (plain text, newlines preserved)"
 }
 ```
 
@@ -177,7 +187,7 @@
 
 ```
 mausritter/
-├── index.php                       # App shell and HTML entry point
+├── index.php                       # HTML shell + PHP locale injection; no inline JS
 ├── api.php                         # JSON API (load / save / reset)
 ├── SPEC.md                         # This file
 ├── mausritter-srd-2.3.1.md         # Mausritter SRD (reference only)
@@ -188,8 +198,20 @@ mausritter/
 │   ├── en.json                     # English strings
 │   └── de.json                     # German strings
 └── assets/
-    └── style.css
+    ├── style.css
+    ├── lib.js        # i18n (t, applyI18n, statLabel), escHtml, uuid, clamp, stat, setupDoubleTap/LongPress
+    ├── state.js      # state object, save/load, factory functions, name deduplication
+    ├── ui.js         # numpad modal, damage/heal popover, undo stack
+    ├── turns.js      # renderTurns, renderTurnDrawer, turn event listeners
+    ├── players.js    # buildPlayerCard, renderPlayers, rest/damage helpers, syncEncounterPC
+    ├── encounter.js  # buildPipBar, buildEncCard, renderEncounter, encounter event listeners
+    ├── roster.js     # buildRosterCard, renderRoster, roster event listeners
+    ├── boats.js      # buildBoatCard, renderBoats, initBoats, boat damage helpers
+    ├── settings.js   # language, force reload, boat mode toggle, setBoatMode
+    └── boot.js       # showTab, tab bar wiring, boot IIFE (async load → render)
 ```
+
+**Load order matters:** `lib → state → ui → turns → players → encounter → roster → boats → settings → boot`. Cross-file function references are safe because they only appear inside closures (event handlers, function bodies), never at top level — so they resolve at call time, after all scripts have loaded.
 
 ---
 
@@ -227,5 +249,5 @@ mausritter/
 
 > Add new feature requests and change requests here. Claude Code should move items into the Status checklist above when implementing them, and check them off when done.
 
-<!-- all pending changes completed as of 2026-05-03 (session 2) -->
+<!-- all pending changes completed as of 2026-05-10 (session 3) -->
 

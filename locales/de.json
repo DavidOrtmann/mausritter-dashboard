@@ -7,6 +7,7 @@
     "players": "Mäuse",
     "roster": "Gegner",
     "fights": "Kämpfe",
+    "notes": "Notizen",
     "settings": "Einstellungen"
   },
   "turns": {
@@ -72,7 +73,7 @@
     "notes_placeholder": "Notizen…",
     "tip_initiative": "Initiative setzen",
     "tip_dbl_tap_max": "Doppeltippen zum Bearbeiten {stat}",
-    "revive": "Wiederbeleben",
+    "revive": "wiederb.",
     "defeat": "✕",
     "status_injured": "Verletzt",
     "status_drained": "Entkräftet",
@@ -116,9 +117,14 @@
     "wil": "WIL",
     "armor": "RÜS"
   },
+  "notes": {
+    "placeholder": "Notizen…"
+  },
   "settings": {
     "heading": "Einstellungen",
-    "language_label": "Sprache"
+    "language_label": "Sprache",
+    "reload_label": "Neu laden",
+    "reload_btn": "Neu laden"
   },
   "boat": {
     "mode_label": "Bootsmodus",

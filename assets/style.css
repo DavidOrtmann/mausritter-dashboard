@@ -470,16 +470,13 @@ input.card-name-input {
 /* ─── Encounter Tab ─────────────────────────────────────────────────── */
 #encounter-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
   align-items: stretch;
 }
 .enc-card {
   border: var(--border);
-  grid-column: span 2;
-}
-.enc-card.collapsed-card {
-  grid-column: span 1;
+  min-width: 0;
 }
 .enc-collapsed-summary {
   padding: 8px;
@@ -895,11 +892,16 @@ input.card-name-input {
 
 .enc-card.defeated .enc-card-header { opacity: 0.5; }
 .enc-card.defeated .enc-card-body { display: none; }
+.enc-card.defeated .enc-collapsed-summary { display: none; }
 .defeated-label {
   font-size: 12px;
   letter-spacing: 0.08em;
   text-decoration: line-through;
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ─── Next Combatant Button ─────────────────────────────────────────── */
@@ -1056,3 +1058,11 @@ body.boat-mode .default-mode-only { display: none !important; }
 .boat-card-body { padding: 8px; }
 .boat-card-body.collapsed { display: none; }
 .csv-ref { font-family: var(--font-stat); font-size: 15px; }
+
+/* ─── Notes tab ─────────────────────────────────────────────────────── */
+#tab-notes { display: none; height: calc(100vh - 120px); }
+#tab-notes.active { display: flex; }
+#notes-area { flex: 1; border: none; outline: none; resize: none;
+              font-family: system-ui, sans-serif; font-size: 14px;
+              background: var(--white); color: var(--black);
+              padding: 12px; }

@@ -5,14 +5,26 @@ Quick-reference for Claude Code. See SPEC.md for the full living spec.
 ## File layout
 
 ```
-index.php          — entire app: HTML shell + all JS (no build step)
-api.php            — JSON API: ?action=load|save|reset
-assets/style.css   — all CSS
-locales/en.json    — English strings
-locales/de.json    — German strings
-data/session.json  — persisted state (must be chmod 775)
-SPEC.md            — living spec + state model
+index.php             — HTML shell + PHP locale injection; no inline JS
+api.php               — JSON API: ?action=load|save|reset
+assets/style.css      — all CSS
+assets/lib.js         — i18n, escHtml, uuid, clamp, stat, setupDoubleTap/LongPress
+assets/state.js       — state object, save/load, factory functions, name deduplication
+assets/ui.js          — numpad modal, damage/heal popover, undo stack
+assets/turns.js       — renderTurns, renderTurnDrawer, turn event listeners
+assets/players.js     — buildPlayerCard, renderPlayers, rest/damage helpers, syncEncounterPC
+assets/encounter.js   — buildPipBar, buildEncCard, renderEncounter, encounter event listeners
+assets/roster.js      — buildRosterCard, renderRoster, roster event listeners
+assets/boats.js       — buildBoatCard, renderBoats, initBoats, boat damage helpers
+assets/settings.js    — language, force reload, boatMode var, setBoatMode
+assets/boot.js        — showTab, tab bar wiring, boot IIFE
+locales/en.json       — English strings
+locales/de.json       — German strings
+data/session.json     — persisted state (must be chmod 775)
+SPEC.md               — living spec + state model
 ```
+
+Load order: `lib → state → ui → turns → players → encounter → roster → boats → settings → boot`. Cross-file references only appear in closures (resolved at call time), never at top level.
 
 ## Stack
 

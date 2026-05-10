@@ -7,6 +7,7 @@
     "players": "Players",
     "roster": "Roster",
     "fights": "Fights",
+    "notes": "Notes",
     "settings": "Settings"
   },
   "turns": {
@@ -72,7 +73,7 @@
     "notes_placeholder": "Notes…",
     "tip_initiative": "Set initiative",
     "tip_dbl_tap_max": "Double-tap to edit max {stat}",
-    "revive": "Revive",
+    "revive": "wiederb.",
     "defeat": "✕",
     "status_injured": "Injured",
     "status_drained": "Drained",
@@ -116,9 +117,14 @@
     "wil": "WIL",
     "armor": "ARM"
   },
+  "notes": {
+    "placeholder": "Notes…"
+  },
   "settings": {
     "heading": "Settings",
-    "language_label": "Language"
+    "language_label": "Language",
+    "reload_label": "Reload",
+    "reload_btn": "Force Reload"
   },
   "boat": {
     "mode_label": "Boat Mode",
